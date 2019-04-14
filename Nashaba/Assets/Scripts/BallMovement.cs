@@ -14,6 +14,16 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate (Vector3.forward *15 * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.Translate(Vector3.forward * 20 * Time.deltaTime);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag.Equals("Destroy"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
