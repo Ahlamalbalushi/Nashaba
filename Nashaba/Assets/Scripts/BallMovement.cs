@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-    public float Force;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +14,6 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // transform.position += transform.forward * Time.deltaTime;
+        transform.Translate (Vector3.forward *15 * Time.deltaTime);
     }
 }
