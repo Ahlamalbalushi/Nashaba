@@ -17,13 +17,25 @@ public class BallMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             transform.Translate(Vector3.forward * 20 * Time.deltaTime);
+
+           
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag.Equals("Destroy"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.name == "FirstTarget")
+    //    {
+    //        print("destroy first");
+    //        Destroy(other.gameObject);
+    //    }
+    //}
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag == "Destroy")
+    //    {
+    //        print("destroy first");
+    //        Destroy(gameObject);
+    //    }
+    //}
 }

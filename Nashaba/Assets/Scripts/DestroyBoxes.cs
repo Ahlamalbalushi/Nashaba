@@ -24,13 +24,14 @@ public class DestroyBoxes : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "ball")
+        if(collision.gameObject.name == "FirstTarget")
         {
+            print("my Destroy");
             Distruction();
         }
     }
     void Distruction()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

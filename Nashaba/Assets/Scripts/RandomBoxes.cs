@@ -22,4 +22,15 @@ public class RandomBoxes : MonoBehaviour
         randomInt = Random.Range(0, boxesSpawn.Length);
         Instantiate(boxesSpawn[randomInt], boxPosition.position, boxPosition.rotation);
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag.Equals("Destroy"))
+    //    {
+           
+    //        Destroy(other.gameObject);
+    //    }
+    //}
+
+   
 }
