@@ -17,17 +17,25 @@ public class DestroyBoxes : MonoBehaviour
                 Distruction();
             }
         }
-        if(this.transform.position.y <= -20)
+        if (this.transform.position.y <= -20)
         {
             Distruction();
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.name == "FirstTarget")
+    //    {
+    //        print("my Destroy");
+    //        Distruction();
+    //    }
+    //}
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.name == "FirstTarget")
+        if (other.gameObject.tag == "Destroy")
         {
-            print("my Destroy");
-            Distruction();
+            Destroy(other.gameObject);
+            print("Touched");
         }
     }
     void Distruction()

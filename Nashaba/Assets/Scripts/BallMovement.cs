@@ -16,9 +16,7 @@ public class BallMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.Translate(Vector3.forward * 20 * Time.deltaTime);
-
-           
+            transform.Translate(Vector3.forward * 20 * Time.deltaTime);  
         }
     }
     //private void OnTriggerEnter(Collider other)
