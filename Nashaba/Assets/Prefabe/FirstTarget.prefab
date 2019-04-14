@@ -166,7 +166,6 @@ GameObject:
   - component: {fileID: 6037177767967647666}
   - component: {fileID: 6037177767967647667}
   - component: {fileID: 6037177767967647664}
-  - component: {fileID: 6037177767967647676}
   m_Layer: 0
   m_Name: Cylinder (1)
   m_TagString: Untagged
@@ -247,22 +246,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!54 &6037177767967647676
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6037177767967647665}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &6037177768762294157
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +258,6 @@ GameObject:
   - component: {fileID: 6037177768762294153}
   - component: {fileID: 6037177768762294158}
   - component: {fileID: 6037177768762294159}
-  - component: {fileID: 6037177768762294156}
   m_Layer: 0
   m_Name: Cylinder (5)
   m_TagString: Untagged
@@ -356,22 +338,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!54 &6037177768762294156
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6037177768762294157}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &6037177769026523067
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +427,6 @@ GameObject:
   - component: {fileID: 6037177769031536859}
   - component: {fileID: 6037177769031536856}
   - component: {fileID: 6037177769031536857}
-  - component: {fileID: 6037177769031536837}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -542,22 +507,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!54 &6037177769031536837
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6037177769031536862}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &6037177769448755470
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +519,6 @@ GameObject:
   - component: {fileID: 6037177769448755466}
   - component: {fileID: 6037177769448755467}
   - component: {fileID: 6037177769448755464}
-  - component: {fileID: 6037177769448755465}
   m_Layer: 0
   m_Name: Cylinder (4)
   m_TagString: Untagged
@@ -651,22 +599,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!54 &6037177769448755465
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6037177769448755470}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &6037177769663637131
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,8 +762,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5272884576852564807}
-  - component: {fileID: 545106580790153604}
-  - component: {fileID: 6026655918184798954}
+  - component: {fileID: 3296505004917288407}
+  - component: {fileID: 5324731219848481721}
   m_Layer: 0
   m_Name: FirstTarget
   m_TagString: Untagged
@@ -862,7 +794,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &545106580790153604
+--- !u!65 &3296505004917288407
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -875,7 +807,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6026655918184798954
+--- !u!54 &5324731219848481721
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -887,7 +819,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0

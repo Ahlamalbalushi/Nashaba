@@ -5,8 +5,7 @@ using UnityEngine;
 public class RandomBoxes : MonoBehaviour
 {
     public GameObject[] boxesSpawn;
-    public Transform boxPosition1;
-    public Transform boxPosition2;
+    public Transform boxPosition;
 
     int randomInt;
     // Update is called once per frame
@@ -21,7 +20,6 @@ public class RandomBoxes : MonoBehaviour
     void SpownRandom()
     {
         randomInt = Random.Range(0, boxesSpawn.Length);
-        Instantiate(boxesSpawn[randomInt], boxPosition1.position, boxPosition1.rotation);
-        Instantiate(boxesSpawn[randomInt], boxPosition2.position, boxPosition2.rotation);
+        Instantiate(boxesSpawn[randomInt], boxPosition.position, boxPosition.rotation);
     }
 }
