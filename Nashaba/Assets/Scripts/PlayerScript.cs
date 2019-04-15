@@ -7,23 +7,37 @@ using System;
 
 public class PlayerScript : MonoBehaviour
 {
-    DetectedPlaneGenerator DetectedPlaneGeneratorscript;
+    public GameObject Player;
+    public Transform FirstPersonCamera;
+
+    public Transform InitPosition;
+  
     //public GameObject rubber;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+   void Update()
     {
-        //if(DetectedPlaneGeneratorscript.isCreatedOnce == true)
-       // {
-            Instantiate(gameObject,new Vector3(0, 0, 0), transform.rotation);
-          
-        //}
+      
         
+          
+      
+        
+    }
+
+   public void setPlayer()
+    {
+        gameObject.SetActive(true);
+        InstPlayer();
+    }
+
+    public void InstPlayer()
+    {
+        Instantiate(Player, InitPosition.position, transform.rotation,transform);
     }
 
     
