@@ -22,22 +22,15 @@ public class DestroyBoxes : MonoBehaviour
             Distruction();
         }
     }
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if(collision.gameObject.name == "FirstTarget")
-    //    {
-    //        print("my Destroy");
-    //        Distruction();
-    //    }
-    //}
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag == "Destroy")
+        if (collision.gameObject.name == "FirstTarget")
         {
-            Destroy(other.gameObject);
-            print("Touched");
+            print("my Destroy");
+            Distruction();
         }
     }
+  
     void Distruction()
     {
         Destroy(gameObject);

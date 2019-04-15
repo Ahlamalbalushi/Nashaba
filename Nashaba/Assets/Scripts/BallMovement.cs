@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-   
+    bool move = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,24 +16,16 @@ public class BallMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.Translate(Vector3.forward * 20 * Time.deltaTime);  
+            //move = true;
+            GetComponent<Rigidbody>().isKinematic = false;
+            GetComponent<Rigidbody>().AddForce(2000 * transform.forward);
+            
         }
-    }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.name == "FirstTarget")
-    //    {
-    //        print("destroy first");
-    //        Destroy(other.gameObject);
-    //    }
-    //}
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if(collision.gameObject.tag == "Destroy")
-    //    {
-    //        print("destroy first");
-    //        Destroy(gameObject);
-    //    }
-    //}
+        //if (move)
+        //{
+        //    transform.Translate(Vector3.forward * 1 * Time.deltaTime);
+        //}
+    }
+
 }
