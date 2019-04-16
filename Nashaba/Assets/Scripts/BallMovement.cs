@@ -18,13 +18,13 @@ public class BallMovement : MonoBehaviour
         {
             //move = true;
             GetComponent<Rigidbody>().isKinematic = false;
-            GetComponent<Rigidbody>().AddForce(2000 * transform.forward);
-            
+            GetComponent<Rigidbody>().AddForce( 3000 * transform.forward);
+
         }
 
         //if (move)
         //{
-        //    transform.Translate(Vector3.forward * 1 * Time.deltaTime);
+        //    transform.Translate(Vector3.forward * 10 * Time.deltaTime);
         //}
     }
 
