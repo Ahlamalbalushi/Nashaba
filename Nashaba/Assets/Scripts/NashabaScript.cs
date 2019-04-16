@@ -10,7 +10,6 @@ public class NashabaScript : MonoBehaviour
     public GameObject Shooter;
     public Transform FirstPersonCamera;
 
-  
     /// position of Shooter
     public Transform InitPosition;
 
@@ -23,66 +22,46 @@ public class NashabaScript : MonoBehaviour
     float PreviosDistanceToTochPos, CurrentDistanceToTochPos;
 
     Rigidbody shooterRB;
-
     GameObject CurrentShooter;
-    
-
+  
+    public float xMin, xMax, zMin, zMax, yMin, yMax;
+    Vector3 OrigihnalPos;
+    Vector3 currentTouch;
 
     //public GameObject rubber;
     // Start is called before the first frame update
     void Start()
     {
-        //OriginalPos = ShooterPos;
         shooterRB = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-   void Update()
+    void Update()
     {
-        //if (!isMoving)
-        //CurrentDistanceToTochPos = (touchPosition - transform.position).magnitude;
+        currentTouch = Input.mousePosition;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-
-
-            PreviosDistanceToTochPos = 0;
-            CurrentDistanceToTochPos = 0;
-
-            //touchPosition.z = 0;
-            //whereToMove = (touchPosition - transform.position).normalized;
-            //shooterRB.velocity = new Vector2(whereToMove.x * 5, whereToMove.y * 5);
-
-
-
-        }
-        else if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             isMoving = false;
+
+            if (currentTouch.y > yMax - 50)
+            {
+                CurrentShooter.transform.position = OrigihnalPos;
+            }
         }
 
-        if (CurrentDistanceToTochPos > PreviosDistanceToTochPos)
-        {
-            isMoving = false;
-            shooterRB.velocity = Vector2.zero;
-        }
+        
 
         if (isMoving)
         {
-            Vector3 currentTouch = Input.mousePosition;
-
-            CurrentShooter.transform.position = myCamera.ScreenToWorldPoint(new Vector3(currentTouch.x, currentTouch.y,2  - (touchPosition.y - currentTouch.y) / Screen.height * 3));
-
-           
-            //PreviosDistanceToTochPos = (touchPosition - transform.position).magnitude;
+            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Min(currentTouch.y,yMax), 2 - (touchPosition.y - Mathf.Min(currentTouch.y, yMax)) / Screen.height * 3);
+            float distance = 0.5f;
+            CurrentShooter.transform.position = Vector3.MoveTowards(InitPosition.position, myCamera.ScreenToWorldPoint(clampedTouch), distance);
         }
-
     }
 
-
     
-
-   public void setShooter()
+    public void setShooter()
     {
         gameObject.SetActive(true);
         InstShooter();
@@ -90,8 +69,8 @@ public class NashabaScript : MonoBehaviour
 
     public void InstShooter()
     {
-        CurrentShooter = Instantiate(Shooter, InitPosition.position, transform.rotation,transform);
-
+        CurrentShooter = Instantiate(Shooter, InitPosition.position, transform.rotation, transform);
+        OrigihnalPos = CurrentShooter.transform.position;
         CurrentShooter.GetComponent<ShooterScript>().clicked = ShooterCLicked;
     }
 
@@ -102,5 +81,5 @@ public class NashabaScript : MonoBehaviour
         touchPosition = Input.mousePosition;
     }
 
-    
+
 }
