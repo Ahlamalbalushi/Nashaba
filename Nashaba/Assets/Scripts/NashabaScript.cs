@@ -23,16 +23,19 @@ public class NashabaScript : MonoBehaviour
 
     Rigidbody shooterRB;
     GameObject CurrentShooter;
-  
-    public float xMin, xMax, zMin, zMax, yMin, yMax;
+
+    public float yMax;
     Vector3 OrigihnalPos;
     Vector3 currentTouch;
+    float Force = 50;
+    Vector3 ShootingAngle;
 
     //public GameObject rubber;
     // Start is called before the first frame update
     void Start()
     {
-        shooterRB = GetComponent<Rigidbody>();
+        //shooterRB = GetComponent<Rigidbody>();
+        shooterRB = CurrentShooter.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -40,9 +43,19 @@ public class NashabaScript : MonoBehaviour
     {
         currentTouch = Input.mousePosition;
 
+       
+
         if (Input.GetMouseButtonUp(0))
         {
             isMoving = false;
+            
+
+            shooterRB.AddForce(transform.forward * Force);
+            shooterRB.useGravity = true;
+           
+            ShootingAngle = (CurrentShooter.transform.position - currentTouch);
+            print(ShootingAngle);
+              
 
             if (currentTouch.y > yMax - 50)
             {
@@ -50,17 +63,29 @@ public class NashabaScript : MonoBehaviour
             }
         }
 
-        
+
 
         if (isMoving)
         {
-            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Min(currentTouch.y,yMax), 2 - (touchPosition.y - Mathf.Min(currentTouch.y, yMax)) / Screen.height * 3);
+            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Min(currentTouch.y, yMax), 2 - (touchPosition.y - Mathf.Min(currentTouch.y, yMax)) / Screen.height * 3);
             float distance = 0.5f;
             CurrentShooter.transform.position = Vector3.MoveTowards(InitPosition.position, myCamera.ScreenToWorldPoint(clampedTouch), distance);
+            //Force = Force + currentTouch.y;
+            //Force = 50 + CurrentShooter.transform.position.y * 5000;
+            float Shooterdistance = (touchPosition.y - clampedTouch.y);
+            Force = Shooterdistance * 20;
+            //print("force:" + Force);
+          
         }
     }
 
-    
+   
+
+
+
+
+
+
     public void setShooter()
     {
         gameObject.SetActive(true);
@@ -79,7 +104,13 @@ public class NashabaScript : MonoBehaviour
     {
         isMoving = true;
         touchPosition = Input.mousePosition;
+        
+       
+
     }
+
+
+
 
 
 }
