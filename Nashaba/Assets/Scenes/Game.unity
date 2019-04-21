@@ -1094,6 +1094,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: NashabaScript
       objectReference: {fileID: 0}
+    - target: {fileID: 502166846341776298, guid: a8c9047c5ceb36a47b357205c47c101d,
+        type: 3}
+      propertyPath: FirstPersonCamera
+      value: 
+      objectReference: {fileID: 2083890628}
+    - target: {fileID: 502166846341776298, guid: a8c9047c5ceb36a47b357205c47c101d,
+        type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 167026805}
+    - target: {fileID: 502166846341776298, guid: a8c9047c5ceb36a47b357205c47c101d,
+        type: 3}
+      propertyPath: yMax
+      value: 230
+      objectReference: {fileID: 0}
     - target: {fileID: 502166846341776293, guid: a8c9047c5ceb36a47b357205c47c101d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1149,10 +1164,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 502166846341776298, guid: a8c9047c5ceb36a47b357205c47c101d,
+    - target: {fileID: 502166847211967146, guid: a8c9047c5ceb36a47b357205c47c101d,
         type: 3}
-      propertyPath: FirstPersonCamera
-      value: 
-      objectReference: {fileID: 2083890628}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 502166847211967146, guid: a8c9047c5ceb36a47b357205c47c101d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8c9047c5ceb36a47b357205c47c101d, type: 3}

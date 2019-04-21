@@ -27,5 +27,7 @@ public class ShooterScript : MonoBehaviour
     private void OnMouseDown()
     {
         clicked.Invoke();
+
+        print("button down");
     }
 }
