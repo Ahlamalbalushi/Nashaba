@@ -568,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9583cdf9040d77b4c8465e7aac864713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 1442133853}
 --- !u!135 &293732741
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1920,6 +1921,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: low_boy
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 49d207f2ce07bcd4ab337876e4e9cc75, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 49d207f2ce07bcd4ab337876e4e9cc75, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.65
@@ -2068,8 +2073,29 @@ MonoBehaviour:
   boxesSpawn:
   - {fileID: 2651642750884571667, guid: de02f7ccb1f89c44e9e3dfbc19eddf20, type: 3}
   boxPosition: {fileID: 2056728742}
-  scoreText: {fileID: 1442133853}
-  Score: 0
+--- !u!1 &1620998597 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: e3442d4b1d4ca014bbdf665ab9be4913,
+    type: 3}
+  m_PrefabInstance: {fileID: 1502119938}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1620998601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620998597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca363bafc8238c41b5d59772781b4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shooter: {fileID: 0}
+  FirstPersonCamera: {fileID: 0}
+  InitPosition: {fileID: 0}
+  myCamera: {fileID: 0}
+  yMax: 0
 --- !u!1 &1664949152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,7 +3003,7 @@ PrefabInstance:
     - target: {fileID: 2651642750884571667, guid: de02f7ccb1f89c44e9e3dfbc19eddf20,
         type: 3}
       propertyPath: m_TagString
-      value: Target
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2651642750884571664, guid: de02f7ccb1f89c44e9e3dfbc19eddf20,
         type: 3}
