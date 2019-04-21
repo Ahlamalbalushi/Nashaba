@@ -257,6 +257,8 @@ GameObject:
   - component: {fileID: 7012053394540758856}
   - component: {fileID: 3830357828861702420}
   - component: {fileID: 2930570236291067520}
+  - component: {fileID: 5212645122529048377}
+  - component: {fileID: 3373452103829297103}
   m_Layer: 0
   m_Name: food1 (6)
   m_TagString: Untagged
@@ -332,10 +334,39 @@ CapsuleCollider:
   m_GameObject: {fileID: 2327415811730710383}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &5212645122529048377
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2327415811730710383}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &3373452103829297103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2327415811730710383}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 2.3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2651642749769071762
 Rigidbody:
@@ -1101,6 +1132,8 @@ GameObject:
   - component: {fileID: 9133332206489924788}
   - component: {fileID: 3522444011507553381}
   - component: {fileID: 1281325614232910466}
+  - component: {fileID: 2521439362173141308}
+  - component: {fileID: 3465437266107937005}
   m_Layer: 0
   m_Name: food1 (5)
   m_TagString: Untagged
@@ -1176,10 +1209,39 @@ CapsuleCollider:
   m_GameObject: {fileID: 3745063135205935172}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2521439362173141308
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3745063135205935172}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &3465437266107937005
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3745063135205935172}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5137068602942569169
 GameObject:
@@ -1193,6 +1255,8 @@ GameObject:
   - component: {fileID: 1476363072308206216}
   - component: {fileID: 1014922897673857975}
   - component: {fileID: 8827122494006985697}
+  - component: {fileID: 4052473356148566457}
+  - component: {fileID: 1890668141057719244}
   m_Layer: 0
   m_Name: food1 (2)
   m_TagString: Untagged
@@ -1268,10 +1332,39 @@ CapsuleCollider:
   m_GameObject: {fileID: 5137068602942569169}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &4052473356148566457
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137068602942569169}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1890668141057719244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137068602942569169}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5171293286115576708
 GameObject:
@@ -1285,6 +1378,8 @@ GameObject:
   - component: {fileID: 68961887189282761}
   - component: {fileID: 7582542564335475405}
   - component: {fileID: 7034892388541007296}
+  - component: {fileID: 5736360449895074882}
+  - component: {fileID: 5384467835257523065}
   m_Layer: 0
   m_Name: food1 (3)
   m_TagString: Untagged
@@ -1360,10 +1455,39 @@ CapsuleCollider:
   m_GameObject: {fileID: 5171293286115576708}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &5736360449895074882
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5171293286115576708}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &5384467835257523065
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5171293286115576708}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8041196300709952165
 Rigidbody:
@@ -1406,6 +1530,8 @@ GameObject:
   - component: {fileID: 1262360221327061374}
   - component: {fileID: 2149998216909244575}
   - component: {fileID: 415748022213790424}
+  - component: {fileID: 1535602838097336340}
+  - component: {fileID: 2576315929816730847}
   m_Layer: 0
   m_Name: food1 (4)
   m_TagString: Untagged
@@ -1481,10 +1607,39 @@ CapsuleCollider:
   m_GameObject: {fileID: 6466339200786489609}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1535602838097336340
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6466339200786489609}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &2576315929816730847
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6466339200786489609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8937630366126994499
 Rigidbody:
@@ -1527,6 +1682,8 @@ GameObject:
   - component: {fileID: 4380823383999856809}
   - component: {fileID: 7263797179791618463}
   - component: {fileID: 6891245228735303763}
+  - component: {fileID: 9068703817923560309}
+  - component: {fileID: 3641711301685185035}
   m_Layer: 0
   m_Name: food1 (1)
   m_TagString: Untagged
@@ -1602,10 +1759,39 @@ CapsuleCollider:
   m_GameObject: {fileID: 7583997639921759557}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &9068703817923560309
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7583997639921759557}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &3641711301685185035
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7583997639921759557}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7986511709463060594
 GameObject:
@@ -1619,6 +1805,8 @@ GameObject:
   - component: {fileID: 4682906670516512275}
   - component: {fileID: 1941061458976714365}
   - component: {fileID: 8458191612293016052}
+  - component: {fileID: 8311525829591894663}
+  - component: {fileID: 3625091819246138479}
   m_Layer: 0
   m_Name: food1
   m_TagString: Untagged
@@ -1694,10 +1882,39 @@ CapsuleCollider:
   m_GameObject: {fileID: 7986511709463060594}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &8311525829591894663
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7986511709463060594}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &3625091819246138479
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7986511709463060594}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8397518266263351111
 GameObject:
@@ -1880,15 +2097,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8889723e493999b46b62154bdd9fdd90, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b21f093a368bd004f9e739b1b58c92c7, type: 3}
---- !u!4 &1106289792430482603 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: b21f093a368bd004f9e739b1b58c92c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1106289792430358059}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1106289792430258315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b21f093a368bd004f9e739b1b58c92c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1106289792430358059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1106289792430482603 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: b21f093a368bd004f9e739b1b58c92c7,
     type: 3}
   m_PrefabInstance: {fileID: 1106289792430358059}
   m_PrefabAsset: {fileID: 0}
@@ -2475,15 +2692,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 14f4ee95dca90bb448dea066d23e6551, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95f4c341ce69c74489f854f17b6ccf6b, type: 3}
---- !u!4 &7218501475852546431 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 95f4c341ce69c74489f854f17b6ccf6b,
-    type: 3}
-  m_PrefabInstance: {fileID: 7218501475852676095}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7218501475852709215 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 95f4c341ce69c74489f854f17b6ccf6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7218501475852676095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7218501475852546431 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 95f4c341ce69c74489f854f17b6ccf6b,
     type: 3}
   m_PrefabInstance: {fileID: 7218501475852676095}
   m_PrefabAsset: {fileID: 0}
