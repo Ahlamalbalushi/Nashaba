@@ -49,6 +49,10 @@
         /// plana will  despear after 5 seconds from craetion
         float planaTimer = 5;
 
+        /// Get access to nashaba script
+        public NashabaScript NashabaScript;
+       
+
 
   
 
@@ -83,6 +87,8 @@
                 // craete the game boxes
                 var andyObject = Instantiate(prefab, planeObject.GetComponent<DetectedPlaneVisualizer>().PlaneCenter, Quaternion.identity);
                 isCreatedOnce = true;
+                /// calling setPlayer function from Nashaba script
+                NashabaScript.setShooter();
                 
 
 
