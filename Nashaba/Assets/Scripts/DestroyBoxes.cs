@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class DestroyBoxes : MonoBehaviour
 {
-    public float lifeTime = 10f;
+    public static DestroyBoxes Instance; 
+
+    public float lifeTime = 5f;
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this);
+        DontDestroyOnLoad(gameObject);
+    }
 
     // Update is called once per frame
     void Update()
