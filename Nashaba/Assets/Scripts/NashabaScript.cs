@@ -52,17 +52,25 @@ public class NashabaScript : MonoBehaviour
         {
 
             isMoving = false;
-            print(InitPosition.localPosition + " " + CurrentShooter.transform.localPosition);
+         
             ShootingAngle = (InitPosition.localPosition - CurrentShooter.transform.localPosition).normalized;
-            //ShootingAngle.z = 1;
-            //ShootingAngle.Normalize();
+
+
+            //print("initalPosition" + InitPosition.localPosition);
+           // print("cuurent shooter transform " + CurrentShooter.transform.localPosition);
+
+            //print("Shooting angle" + ShootingAngle);
 
             power = (InitPosition.localPosition - CurrentShooter.transform.localPosition).magnitude;
-            shooterRB.AddForce(ShootingAngle * power * PowerFactor);
+            
             //DestroyShooter();
             //Invoke("DestroyShooter", 5);
             //shooterRB.AddForce(transform.forward * Power);
             shooterRB.useGravity = true;
+
+            CurrentShooter.transform.parent = null;
+
+            shooterRB.AddForce(ShootingAngle * power * PowerFactor);
 
             CurrentShooter.GetComponent<ShooterScript>().shot();
                 

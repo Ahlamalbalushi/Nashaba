@@ -41,7 +41,6 @@ public class ShooterScript : MonoBehaviour
     private void OnMouseDown()
     {
         clicked.Invoke();
-
         
     }
     private void OnTriggerEnter(Collider other)
