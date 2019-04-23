@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShakeScript : MonoBehaviour
 {
-    //public GameObject[] food;
+    public GameObject[] food;
     //int myFood;
     float degrees = 90;
     bool onGround;
@@ -22,9 +22,9 @@ public class ShakeScript : MonoBehaviour
         {
             // transform.Rotate(Vector3.up, degrees * Time.deltaTime * 1);
 
-            Vector3 food = new Vector3(degrees * Time.deltaTime, 0, 0);
+            Vector3 food = new Vector3(degrees, 0,0);
 
-            transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, food, Time.deltaTime * 0.5f);
+            transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, food, Time.deltaTime * 0.4f);
 
         }
     }
