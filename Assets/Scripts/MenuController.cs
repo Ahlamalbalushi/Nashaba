@@ -92,7 +92,7 @@ public class MenuController : MonoBehaviour
         for (int TimerMovScen = 0; TimerMovScen <=100; TimerMovScen++)
         {
             ShowObjCorrect();
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("Targets");
         }
     }
 

@@ -108,8 +108,6 @@ public class NashabaScript : MonoBehaviour
 
             PlayerPos = CurrentShooter.transform.position;
 
-            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Clamp(currentTouch.y, yMin, yMax), InitPosition.localPosition.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax)) / Screen.height);
-
          
           
 

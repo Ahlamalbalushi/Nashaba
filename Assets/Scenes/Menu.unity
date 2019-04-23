@@ -283,6 +283,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1007108020}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
@@ -1215,8 +1226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bce5d0446d2c4ef3b066c40f436650a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eatCoin: {fileID: 8300000, guid: fca706c2761294455a79a73c4e30edf9, type: 3}
-  HitStone: {fileID: 8300000, guid: 9b5022a329dce4b328711c42801b785c, type: 3}
 --- !u!82 &1089161381
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1363,7 +1372,6 @@ MonoBehaviour:
   IsMale: {fileID: 1548240404}
   IsFemale: {fileID: 215911569}
   PlayerImg: {fileID: 308806502}
-  TimerMovScen: 3
 --- !u!4 &1155194969
 Transform:
   m_ObjectHideFlags: 0
