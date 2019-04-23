@@ -12,15 +12,17 @@ public class RightLasticScript : MonoBehaviour
     float lasticangle;
     RectTransform rect;
     Vector3 originalTransform;
-    Vector3 rectSize;
+    Vector2 rectSize;
     bool isMoved = false;
-    bool isdisableNashaba= false;
-    public float  yMax;
+    bool isdisableNashaba = false;
+    public float yMax;
     public float yMin;
     public Vector3 clampedTouch;
 
     public NashabaScript nashaba;
 
+
+    //Vector2 originalSize;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,27 +33,29 @@ public class RightLasticScript : MonoBehaviour
         // get value of  yMax && yMin from Nashaba script to lastic script
         yMax = nashaba.yMax;
         yMin = nashaba.yMin;
-      
-       
+
+
+        //originalSize = rect.sizeDelta;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+
         touchPosition = Input.mousePosition;
         touchPosition = new Vector3(touchPosition.x, Mathf.Clamp(touchPosition.y, yMin, yMax), touchPosition.z - (touchPosition.y - Mathf.Clamp(touchPosition.y, yMin, yMax)) / Screen.height);
-       
-       
+
+
 
         if (Input.GetMouseButton(0) && !isdisableNashaba)
         {
-         // print("Touch Position" + touchPosition);
+            // print("Touch Position" + touchPosition);
             Length = (touchPosition - gameObject.transform.position);
             LasticLength = Length.magnitude;
-       //   print("length" + LasticLength);
+            //   print("length" + LasticLength);
             lasticangle = Mathf.Atan2(Length.y, Length.x) * Mathf.Rad2Deg;
-         // print(lasticangle);
+            // print(lasticangle);
             isMoved = true;
             // apply the angle in rotaion of z 
 
@@ -63,10 +67,10 @@ public class RightLasticScript : MonoBehaviour
             // newsize.y = LasticLength;
             // rect.sizeDelta = newsize;
 
-          
 
-             rect.sizeDelta = new Vector2(LasticLength, rect.sizeDelta.y - .03f);
-          
+
+            rect.sizeDelta = new Vector2(LasticLength, Mathf.Clamp(rectSize.y - (LasticLength - rectSize.x) * 0.2f, 10, rectSize.y)); // restrict length of lastic
+
 
         }
 

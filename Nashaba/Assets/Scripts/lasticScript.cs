@@ -51,7 +51,7 @@ public class lasticScript : MonoBehaviour
             // apply the angle in rotaion of z 
          // originalTransform.eulerAngles = transform.eulerAngles;
             transform.eulerAngles = new Vector3(0, 0, lasticangle + 180);
-            rect.sizeDelta = new Vector2(LasticLength, rect.sizeDelta.y - .03f);
+            rect.sizeDelta = new Vector2(LasticLength, Mathf.Clamp(rectSize.y - (LasticLength - rectSize.x) * 0.2f, 10, rectSize.y)); // restrict length of lastic
             isMoved = true;
             //if (touchPosition.y < 19)
             //{
