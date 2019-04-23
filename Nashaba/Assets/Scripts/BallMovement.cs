@@ -23,7 +23,7 @@ public class BallMovement : MonoBehaviour
     public Transform[] WayPoints;
     Vector3 tempWayPoint;
     int index = 0;
-
+    bool isCrashed;
     private void Start()
     {
         GameObject go = GameObject.Find("WayPoints");
@@ -33,27 +33,29 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 wayPointDirection = (WayPoints[index].position - transform.position).normalized;
-        if (Vector3.Distance(transform.position, WayPoints[index].position) < 1f)
-        {
-            index++;
-            if (WayPoints.Length == index)
-                index = 0;
-        }
+        //if (isCrashed = true)
+        //{
+            Vector3 wayPointDirection = (WayPoints[index].position - transform.position).normalized;
+            if (Vector3.Distance(transform.position, WayPoints[index].position) < 1f)
+            {
+                index++;
+                if (WayPoints.Length == index)
+                    index = 0;
+            }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent<Rigidbody>().isKinematic = false;
-            GetComponent<Rigidbody>().AddForce(-2500 * transform.up);
-            isPlayerDied = true;
-        }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GetComponent<Rigidbody>().isKinematic = false;
+                GetComponent<Rigidbody>().AddForce(-2500 * transform.up);
+                isPlayerDied = true;
+            }
 
-        if (isPlayerDied)
-        {
-            Invoke("destroythissmoke", 5);
+            if (isPlayerDied)
+            {
+                Invoke("destroythissmoke", 5);
+            }
         }
-    }
-
+    //}
     void destroythissmoke()
     {
         Destroy(this.gameObject);
@@ -72,6 +74,10 @@ public class BallMovement : MonoBehaviour
                 scoreText.text = " Score : " + Score;
                 print(Score);            
         }
+        //if(!isCrashed)
+        //{
+        //    print("it is not crashed");
+        //}
     }
 }
 
