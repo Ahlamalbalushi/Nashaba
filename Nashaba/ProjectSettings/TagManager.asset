@@ -6,6 +6,9 @@ TagManager:
   tags:
   - ManipulationSystem
   - Target
+  - Fire
+  - Ground
+  - WayPoints
   layers:
   - Default
   - TransparentFX
