@@ -1,7 +1,11 @@
 fileFormatVersion: 2
+Nashaba-IntegrateARFiles/Nashaba/Assets/GoogleARCore/CLI/augmented_image_cli_osx.meta
 guid: 28c3817e225ff4db8a467158072ea34f
 timeCreated: 1520796615
 licenseType: Pro
+
+guid: cf7b10762fe921e40a18151a6c92a8a6
+ origin/gameplay:Nashaba/Assets/GoogleARCore/SDK/InstantPreview/Scripts/InstantPreview.apk.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

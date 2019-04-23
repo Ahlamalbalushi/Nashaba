@@ -4,6 +4,7 @@ using GoogleARCore;
 using UnityEngine;
 using GoogleARCore.Examples.Common;
 using System;
+
 #if UNITY_EDITOR
 // Set up touch input propagation while using Instant Preview in the editor.
 using Input = GoogleARCore.InstantPreviewInput;
@@ -16,6 +17,7 @@ public class NashabaScript : MonoBehaviour
     public Transform InitPosition;
     public Camera myCamera;
     Vector3 touchPosition;
+
     public bool isMoving = false;
     Rigidbody shooterRB;
     GameObject CurrentShooter;
@@ -29,12 +31,14 @@ public class NashabaScript : MonoBehaviour
     bool isShooterCreated = false;
 
     public Vector3 Acceleration;
-
-    public Vector3 PlayerPos;
-
-    
+    public Vector3 PlayerPos;   
    //public float velocity;
-
+    public float yMin;
+   
+    //float Force = 50;
+    
+    public float PowerFactor;
+ 
     //public GameObject rubber;
     // Start is called before the first frame update
     void Start()
@@ -47,9 +51,6 @@ public class NashabaScript : MonoBehaviour
     void Update()
     {
         //Touch touch;
-
-
-
         currentTouch = Input.mousePosition;
         if (Input.GetMouseButtonUp(0) && isShooterCreated)
         {
@@ -61,12 +62,32 @@ public class NashabaScript : MonoBehaviour
             shooterRB.AddForce(ShootingAngle * power * 3000);
             shooterRB.useGravity = true;
 
+            isMoving = false;
+         
+            ShootingAngle = (InitPosition.localPosition - CurrentShooter.transform.localPosition).normalized;
 
+            //print("initalPosition" + InitPosition.localPosition);
+           // print("cuurent shooter transform " + CurrentShooter.transform.localPosition);
 
+            //print("Shooting angle" + ShootingAngle);
+
+            power = (InitPosition.localPosition - CurrentShooter.transform.localPosition).magnitude;
+            
+            //DestroyShooter();
+            //Invoke("DestroyShooter", 5);
+            //shooterRB.AddForce(transform.forward * Power);
+            shooterRB.useGravity = true;
+
+            CurrentShooter.transform.parent = null;
+
+            shooterRB.AddForce(ShootingAngle * power * PowerFactor);
+
+            CurrentShooter.GetComponent<ShooterScript>().shot();
+               
             if (currentTouch.y > yMax - 50)
             {
                 CurrentShooter.transform.position = OrigihnalPos;
-            }
+           }
 
             isShooterCreated = false;
 
@@ -77,6 +98,7 @@ public class NashabaScript : MonoBehaviour
 
         if (isMoving && isShooterCreated)
         {
+
             Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Min(currentTouch.y, yMax), 2 - (touchPosition.y - Mathf.Min(currentTouch.y, yMax)) / Screen.height * 3);
             distance = 0.5f;
             CurrentShooter.transform.position = Vector3.MoveTowards(InitPosition.position, myCamera.ScreenToWorldPoint(clampedTouch), distance);
@@ -85,6 +107,15 @@ public class NashabaScript : MonoBehaviour
             Acceleration = (InitPosition.position - CurrentShooter.transform.position).magnitude * ShootingAngle * 3000;
 
             PlayerPos = CurrentShooter.transform.position;
+
+            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Clamp(currentTouch.y, yMin, yMax), InitPosition.localPosition.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax)) / Screen.height);
+
+         
+          
+
+            distance = 0.5f;
+            CurrentShooter.transform.position = Vector3.MoveTowards(InitPosition.position, myCamera.ScreenToWorldPoint(clampedTouch), distance);
+
             //Force replaced by power 
             //float Shooterdistance = (touchPosition.y - clampedTouch.y);
             //Force = Shooterdistance * 20;
@@ -115,11 +146,13 @@ public class NashabaScript : MonoBehaviour
         isMoving = true;
         touchPosition = Input.mousePosition;
 
+
         print("button down");
     }
 
-
-
-
-
-}
+    }
+    //public void DestroyShooter()
+    //{
+    //        //Destroy(CurrentShooter);
+        
+    //}
