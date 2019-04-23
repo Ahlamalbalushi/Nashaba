@@ -10,12 +10,19 @@ public class MiddlePointScript : MonoBehaviour
     Vector3 originalPosition;
     bool isMoved;
     bool isdisableNashaba = false;
+    public float yMax;
+    public float yMin;
+    public NashabaScript nashaba;
+   
 
     // Start is called before the first frame update
     void Start()
     {
         originalPosition = transform.position;
         isMoved = false;
+        yMax = nashaba.yMax;
+        yMin = nashaba.yMin;
+        
     }
 
     // Update is called once per frame
@@ -23,17 +30,18 @@ public class MiddlePointScript : MonoBehaviour
     {
        
         touchPosition = Input.mousePosition;
+        touchPosition = new Vector3(touchPosition.x, Mathf.Clamp(touchPosition.y, yMin, yMax), touchPosition.z - (touchPosition.y - Mathf.Clamp(touchPosition.y, yMin, yMax)) / Screen.height);
 
         if (Input.GetMouseButton(0) && !isdisableNashaba)
         {
             transform.position = touchPosition;
             isMoved = true;
 
-            if (touchPosition.y < 19)
-            {
-                isdisableNashaba = true;
+            //if (touchPosition.y < 19)
+            //{
+            //    isdisableNashaba = true;
 
-            }
+            //}
         }
 
         if (Input.GetMouseButtonUp(0) && (isMoved = true))

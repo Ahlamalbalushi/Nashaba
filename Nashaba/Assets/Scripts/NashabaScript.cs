@@ -31,6 +31,7 @@ public class NashabaScript : MonoBehaviour
     Vector3 ShootingAngle;
     float distance;
     bool isShooterCreated = false;
+   
 
 
     //public GameObject rubber;
@@ -90,6 +91,10 @@ public class NashabaScript : MonoBehaviour
         if (isMoving && isShooterCreated)
         {
             Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Clamp(currentTouch.y, yMin, yMax), InitPosition.localPosition.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax)) / Screen.height);
+
+         
+          
+
             distance = 0.5f;
             CurrentShooter.transform.position = Vector3.MoveTowards(InitPosition.position, myCamera.ScreenToWorldPoint(clampedTouch), distance);
             //Force replaced by power 
