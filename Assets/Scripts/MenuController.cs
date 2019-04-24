@@ -13,9 +13,10 @@ public class MenuController : MonoBehaviour
     public Button CancelBtn;
     public Toggle IsMale;
     public Toggle IsFemale;
-    public Image PlayerImg;
 
-   
+    public GameObject low_boy;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,16 +39,17 @@ public class MenuController : MonoBehaviour
         
         if (IsMale.isOn)
         {
-    
+
+            low_boy.gameObject.SetActive(true);
             MoveToScenea();
-            PlayerImg.color = Color.blue;
+            // PlayerImg.color = Color.blue;
 
         }
         else if (IsFemale.isOn )
         {
-          
+            low_boy.gameObject.SetActive(true);
             MoveToScenea();
-            PlayerImg.color = Color.red;
+           // PlayerImg.color = Color.red;
             
 
         }
@@ -65,8 +67,11 @@ public class MenuController : MonoBehaviour
         Msgbox.enabled = false;
         ShowMsgErrorText.enabled = false;
         CancelBtn.gameObject.SetActive(false);
-        PlayerImg.enabled = false;
+        //PlayerImg.enabled = false;
         ShowMsgErrorText.text = "";
+        low_boy.gameObject.SetActive(false);
+
+
     }
 
 
@@ -82,7 +87,7 @@ public class MenuController : MonoBehaviour
     void ShowObjCorrect()
     {
         Msgbox.enabled = true;
-        PlayerImg.enabled = true;
+       // PlayerImg.enabled = true;
     }
 
 
@@ -92,7 +97,7 @@ public class MenuController : MonoBehaviour
         for (int TimerMovScen = 0; TimerMovScen <=100; TimerMovScen++)
         {
             ShowObjCorrect();
-            SceneManager.LoadScene("Targets");
+          //  SceneManager.LoadScene("Targets");
         }
     }
 

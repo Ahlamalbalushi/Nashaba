@@ -10,8 +10,6 @@ public class RandomBoxes : MonoBehaviour
 
     int randomInt;
 
-  
-
     // Update is called once per frame
     void Update()
     {

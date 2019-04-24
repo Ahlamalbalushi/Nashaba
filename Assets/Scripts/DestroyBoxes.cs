@@ -4,30 +4,29 @@ using UnityEngine;
 
 public class DestroyBoxes : MonoBehaviour
 {
-    public static DestroyBoxes Instance; 
+    public static DestroyBoxes Instance;
 
     public float lifeTime = 5f;
 
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(this);
-        DontDestroyOnLoad(gameObject);
+        //if (Instance == null)
+        Instance = this;
+        //else
+        //    Destroy(this);
+        //DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (lifeTime > 0)
+
+        lifeTime -= Time.deltaTime;
+
+        if (lifeTime <= 0)
         {
-            lifeTime -= Time.deltaTime;
-            if (lifeTime <= 0)
-            {
-                Distruction();
-            }
+            Distruction();
         }
         if (this.transform.position.y <= -20)
         {
@@ -42,7 +41,7 @@ public class DestroyBoxes : MonoBehaviour
             Distruction();
         }
     }
-  
+
     void Distruction()
     {
         Destroy(gameObject);

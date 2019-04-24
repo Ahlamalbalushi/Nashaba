@@ -57,7 +57,7 @@ public class BallMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<Rigidbody>().isKinematic = false;
-            GetComponent<Rigidbody>().AddForce(-2500 * transform.up);
+            GetComponent<Rigidbody>().AddForce(-3500 * transform.up);
             isPlayerDied = true;
         }
 
