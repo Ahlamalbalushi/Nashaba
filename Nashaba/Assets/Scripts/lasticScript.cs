@@ -19,7 +19,11 @@ public class lasticScript : MonoBehaviour
     public float yMax;
     public float yMin;
     public NashabaScript nashaba;
-    // Start is called before the first frame update
+    public float ShakingTime = 0.1f; // duration of shake 
+
+    public float shakeRange = 1f; // shake range 
+                                   //keep it mind that max it can go is half in either direction
+                                   // Start is called before the first frame update
     void Start()
     {
         rect = GetComponent<RectTransform>();
@@ -56,6 +60,8 @@ public class lasticScript : MonoBehaviour
             isMoved = true;
            
 
+
+
         }
         if (Input.GetMouseButtonUp(0) && (isMoved = true))
         {
@@ -64,7 +70,8 @@ public class lasticScript : MonoBehaviour
             transform.eulerAngles = originalTransform;
             rect.sizeDelta = rectSize;
             isMoved = false;
-           // isdisableNashaba = false;
+            StartCoroutine(NashabaShake());
+            // isdisableNashaba = false;
 
 
 
@@ -72,4 +79,27 @@ public class lasticScript : MonoBehaviour
 
 
     }
+
+    private IEnumerator NashabaShake()
+    {
+       // print("shaking starts");
+        float elapsed = 0.0f;
+        Quaternion originalRotation = transform.rotation;
+
+        while (elapsed < ShakingTime)
+        {
+
+            elapsed += Time.deltaTime;
+           // float z = Random.value
+            float z = Random.value * shakeRange - (shakeRange / 2);
+            transform.eulerAngles = new Vector3(originalRotation.x, originalRotation.y, originalRotation.z + z);
+            yield return null;
+        }
+
+        transform.rotation = originalRotation;
+    }
+
+
+
 }
+
