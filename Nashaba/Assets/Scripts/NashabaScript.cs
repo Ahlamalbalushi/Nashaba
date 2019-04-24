@@ -18,7 +18,7 @@ public class NashabaScript : MonoBehaviour
     public Transform InitPosition;
     public Camera myCamera;
     Vector3 touchPosition;
-    bool isMoving = false;
+   public bool isMoving = false;
     Rigidbody shooterRB;
     GameObject CurrentShooter;
     public float yMax;
@@ -49,7 +49,7 @@ public class NashabaScript : MonoBehaviour
 
 
         currentTouch = Input.mousePosition;
-        if (Input.GetMouseButtonUp(0) && isShooterCreated)
+        if (Input.GetMouseButtonUp(0) && isShooterCreated && isMoving)
         {
 
             isMoving = false;
