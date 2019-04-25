@@ -104,7 +104,7 @@ public class NashabaScript : MonoBehaviour
     }
 
 
-
+   
     public void setShooter()
     {
         gameObject.SetActive(true);
@@ -113,7 +113,7 @@ public class NashabaScript : MonoBehaviour
 
     public void InstShooter()
     {
-        CurrentShooter = Instantiate(Shooter, InitPosition.position, transform.rotation, transform);
+        CurrentShooter = Instantiate(Shooter, InitPosition.position, transform.rotation ,transform);
         OrigihnalPos = CurrentShooter.transform.position;
         CurrentShooter.GetComponent<ShooterScript>().clicked = ShooterCLicked;
 

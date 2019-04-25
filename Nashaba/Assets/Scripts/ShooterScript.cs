@@ -8,7 +8,9 @@ public class ShooterScript : MonoBehaviour
 {
 
     public Action clicked;
-   
+    public GameObject smoke;
+    bool doit = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,13 +45,36 @@ public class ShooterScript : MonoBehaviour
         clicked.Invoke();
         
     }
-    private void OnTriggerEnter(Collider other)
+
+    void destroythissmoke()
     {
-        if (other.gameObject.tag == "Target")
+        Destroy(this.gameObject);
+    }
+
+
+    void DestroySmoke()
+    {
+
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (gameObject.tag == "Target")
         {
+            Instantiate(smoke, this.transform.position, Quaternion.identity);
+            //doit = false;
             print("Colid");
-        
-           
         }
     }
+     
+
+           // if (doit)
+            //{
+                
+
+
+           // }
+        //}
+    
 }
