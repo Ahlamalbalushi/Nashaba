@@ -37,14 +37,14 @@ public class lasticScript : MonoBehaviour
         yMax = nashaba.yMax;
         yMin = nashaba.yMin;
        
-        print("clamp" + yMin);
+       // print("clamp" + yMin);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+     
         isShooterMoved = nashaba.isMoving;
         touchPosition = Input.mousePosition;
         touchPosition = new Vector3(touchPosition.x, Mathf.Clamp(touchPosition.y, yMin, yMax), touchPosition.z - (touchPosition.y - Mathf.Clamp(touchPosition.y, yMin, yMax)) / Screen.height);
@@ -65,7 +65,7 @@ public class lasticScript : MonoBehaviour
             rect.sizeDelta = new Vector2(LasticLength - 50, Mathf.Clamp(rectSize.y - (LasticLength - rectSize.x) * 0.1f, 10, rectSize.y)); // restrict length of lastic
             isMoved = true;
 
-            print("toch" + Input.mousePosition);
+           // print("toch" + Input.mousePosition);
 
 
         }

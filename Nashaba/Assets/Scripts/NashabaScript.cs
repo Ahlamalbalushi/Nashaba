@@ -29,9 +29,12 @@ public class NashabaScript : MonoBehaviour
     float power;
     public float PowerFactor;
     Vector3 ShootingAngle;
-    float distance;
+   public float distance;
     bool isShooterCreated = false;
-   
+
+    public DetectedPlaneGenerator PlaneGenerator;
+    public GameObject NashabaParts;
+
 
 
     //public GameObject rubber;
@@ -39,11 +42,17 @@ public class NashabaScript : MonoBehaviour
     void Start()
     {
         //shooterRB = CurrentShooter.GetComponent<Rigidbody>();
+        NashabaParts.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (PlaneGenerator.isCreatedOnce == true)
+        {
+            NashabaParts.SetActive(true);
+
+        }
         //Touch touch;
 
 
@@ -63,7 +72,9 @@ public class NashabaScript : MonoBehaviour
             //print("Shooting angle" + ShootingAngle);
 
             power = (InitPosition.localPosition - CurrentShooter.transform.localPosition).magnitude;
-            
+
+            //CurrentShooter.GetComponent<Collider>().enabled = true;
+            shooterRB.GetComponent<Rigidbody>().isKinematic = false;
             //DestroyShooter();
             //Invoke("DestroyShooter", 5);
             //shooterRB.AddForce(transform.forward * Power);
@@ -71,7 +82,7 @@ public class NashabaScript : MonoBehaviour
 
             CurrentShooter.transform.parent = null;
 
-            shooterRB.AddForce(ShootingAngle * power * PowerFactor);
+            shooterRB.AddForce(transform.TransformVector(ShootingAngle) * power * PowerFactor);
 
             CurrentShooter.GetComponent<ShooterScript>().shot();
                 
@@ -90,7 +101,7 @@ public class NashabaScript : MonoBehaviour
 
         if (isMoving && isShooterCreated)
         {
-            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Clamp(currentTouch.y, yMin, yMax), InitPosition.localPosition.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax)) / Screen.height);
+            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Clamp(currentTouch.y, yMin, yMax), InitPosition.localPosition.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax)) / Screen.height/5);
 
          
           

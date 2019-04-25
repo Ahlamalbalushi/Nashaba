@@ -52,19 +52,14 @@ public class ShooterScript : MonoBehaviour
     }
 
 
-    void DestroySmoke()
-    {
-
-
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (gameObject.tag == "Target")
+        if (collision.gameObject.tag == "Target")
         {
             Instantiate(smoke, this.transform.position, Quaternion.identity);
             //doit = false;
-            print("Colid");
+            //print("Colid");
         }
     }
      
