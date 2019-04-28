@@ -26,7 +26,7 @@ public class NashabaScript : MonoBehaviour
     Vector3 OrigihnalPos;
     Vector3 currentTouch;
     //float Force = 50;
-    float power;
+    public float power;
     public float PowerFactor;
     Vector3 ShootingAngle;
    public float distance;
@@ -35,6 +35,12 @@ public class NashabaScript : MonoBehaviour
     public DetectedPlaneGenerator PlaneGenerator;
     public GameObject NashabaParts;
 
+    /// <summary>
+    /// //////////////////////
+    /// </summary>
+    public Vector3 Acceleration;
+
+    public Vector3 PlayerPos;
 
 
     //public GameObject rubber;
@@ -43,6 +49,7 @@ public class NashabaScript : MonoBehaviour
     {
         //shooterRB = CurrentShooter.GetComponent<Rigidbody>();
         NashabaParts.SetActive(false);
+        power = 0;
     }
 
     // Update is called once per frame
@@ -53,9 +60,7 @@ public class NashabaScript : MonoBehaviour
             NashabaParts.SetActive(true);
 
         }
-        //Touch touch;
-
-
+        
 
         currentTouch = Input.mousePosition;
         if (Input.GetMouseButtonUp(0) && isShooterCreated && isMoving)
@@ -66,18 +71,12 @@ public class NashabaScript : MonoBehaviour
             ShootingAngle = (InitPosition.localPosition - CurrentShooter.transform.localPosition).normalized;
 
 
-            //print("initalPosition" + InitPosition.localPosition);
-           // print("cuurent shooter transform " + CurrentShooter.transform.localPosition);
-
-            //print("Shooting angle" + ShootingAngle);
 
             power = (InitPosition.localPosition - CurrentShooter.transform.localPosition).magnitude;
 
-            //CurrentShooter.GetComponent<Collider>().enabled = true;
+          
             shooterRB.GetComponent<Rigidbody>().isKinematic = false;
-            //DestroyShooter();
-            //Invoke("DestroyShooter", 5);
-            //shooterRB.AddForce(transform.forward * Power);
+         
             shooterRB.useGravity = true;
 
             CurrentShooter.transform.parent = null;
@@ -104,10 +103,17 @@ public class NashabaScript : MonoBehaviour
             Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Clamp(currentTouch.y, yMin, yMax), InitPosition.localPosition.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax)) / Screen.height/5);
 
          
-          
-
             distance = 0.5f;
             CurrentShooter.transform.position = Vector3.MoveTowards(InitPosition.position, myCamera.ScreenToWorldPoint(clampedTouch), distance);
+
+            ///////////////////
+            ShootingAngle = (InitPosition.position - CurrentShooter.transform.position).normalized;
+            Acceleration = (InitPosition.position - CurrentShooter.transform.position).magnitude * ShootingAngle * 3000;
+
+            PlayerPos = CurrentShooter.transform.position;
+
+
+
             //Force replaced by power 
             //float Shooterdistance = (touchPosition.y - clampedTouch.y);
             //Force = Shooterdistance * 20;
