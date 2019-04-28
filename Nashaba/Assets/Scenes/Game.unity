@@ -1341,6 +1341,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6471061790441999800, guid: f8603f4d97e5feb449a72d3369c54b13,
         type: 3}
+    - target: {fileID: 502166846341776298, guid: a8c9047c5ceb36a47b357205c47c101d,
+        type: 3}
+      propertyPath: NashabaParts
+      value: 
+      objectReference: {fileID: 774338815}
+    - target: {fileID: 502166846341776298, guid: a8c9047c5ceb36a47b357205c47c101d,
+        type: 3}
+      propertyPath: PlaneGenerator
+      value: 
+      objectReference: {fileID: 41632642}
     - target: {fileID: 502166846341776293, guid: a8c9047c5ceb36a47b357205c47c101d,
         type: 3}
       propertyPath: m_LocalPosition.x

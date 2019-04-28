@@ -22,6 +22,6 @@ public class RandomBoxes : MonoBehaviour
     void SpownRandom()
     {
         randomInt = Random.Range(0, boxesSpawn.Length);
-        Instantiate(boxesSpawn[randomInt], boxPosition.position, boxPosition.rotation);
+     //   Instantiate(boxesSpawn[randomInt], boxPosition.position, boxPosition.rotation);
     }
 }
