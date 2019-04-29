@@ -132,7 +132,7 @@ public class NashabaScript : MonoBehaviour
     {
         CurrentShooter = Instantiate(Shooter, InitPosition.position, transform.rotation ,transform);
         OrigihnalPos = CurrentShooter.transform.position;
-        CurrentShooter.GetComponent<ShooterScript>().clicked = ShooterCLicked;
+        //CurrentShooter.GetComponent<ShooterScript>().clicked = ShooterCLicked;
 
         shooterRB = CurrentShooter.GetComponent<Rigidbody>();
         isShooterCreated = true;

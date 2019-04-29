@@ -9,7 +9,6 @@ public class MiddlePointScript : MonoBehaviour
     Vector3 touchPosition;
     Vector3 originalPosition;
     bool isMoved;
-    bool isdisableNashaba = false;
     public float yMax;
     public float yMin;
     public NashabaScript nashaba;
@@ -38,18 +37,14 @@ public class MiddlePointScript : MonoBehaviour
             transform.position = touchPosition;
             isMoved = true;
 
-            //if (touchPosition.y < 19)
-            //{
-            //    isdisableNashaba = true;
-
-            //}
+           
         }
 
         if (Input.GetMouseButtonUp(0) && (isMoved = true))
         {
             transform.position = originalPosition;
             isMoved = false;
-            isdisableNashaba = false;
+           
 
         }
     }

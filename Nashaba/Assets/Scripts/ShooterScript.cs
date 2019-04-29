@@ -6,12 +6,10 @@ using System;
 
 public class ShooterScript : MonoBehaviour
 {
-
-    public Action clicked;
     public GameObject smoke;
-    bool doit = true;
+    //bool doit = true;
 
-
+    public Action OnDestroyed;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,13 +35,7 @@ public class ShooterScript : MonoBehaviour
     void ShooterDestroyed()
     {
         Destroy(gameObject);
-    }
-
-
-    private void OnMouseDown()
-    {
-        clicked.Invoke();
-        
+        OnDestroyed.Invoke();
     }
 
     void destroythissmoke()
@@ -58,18 +50,10 @@ public class ShooterScript : MonoBehaviour
         if (collision.gameObject.tag == "Target")
         {
             Instantiate(smoke, this.transform.position, Quaternion.identity);
-            //doit = false;
-            //print("Colid");
+            
         }
     }
      
-
-           // if (doit)
-            //{
-                
-
-
-           // }
-        //}
+    
     
 }
