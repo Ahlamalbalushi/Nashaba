@@ -11,7 +11,7 @@ public class MiddlePointScript : MonoBehaviour
     bool isMoved;
     public float yMax;
     public float yMin;
-    public NashabaScript nashaba;
+    //public NashabaScript nashaba;
     internal bool isShooterMoved;
 
 
@@ -20,15 +20,15 @@ public class MiddlePointScript : MonoBehaviour
     {
         originalPosition = transform.position;
         isMoved = false;
-        yMax = nashaba.yMax;
-        yMin = nashaba.yMin;
+        //yMax = nashaba.yMax;
+        //yMin = nashaba.yMin;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-         isShooterMoved = nashaba.isMoving;
+         //isShooterMoved = nashaba.isMoving;
         touchPosition = Input.mousePosition;
         touchPosition = new Vector3(touchPosition.x, Mathf.Clamp(touchPosition.y, yMin, yMax), touchPosition.z - (touchPosition.y - Mathf.Clamp(touchPosition.y, yMin, yMax)) / Screen.height);
 
