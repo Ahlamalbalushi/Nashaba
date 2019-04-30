@@ -8,10 +8,10 @@ public class BasicTrajectorySimulation : MonoBehaviour
 {
     // Reference to the LineRenderer we will use to display the simulated path
     public LineRenderer sightLine;
-    public NashabaScript nashabaScript;
+    public threedNashaba ThreeDnashabaScript;
     Rigidbody shooterRB;
 
-
+    public float Length = 20;
     // Number of segments to calculate - more gives a smoother line
     public int segmentCount = 10;
 
@@ -24,7 +24,7 @@ public class BasicTrajectorySimulation : MonoBehaviour
 
     void FixedUpdate()
     {
-        sightLine.enabled = nashabaScript.isMoving;
+        sightLine.enabled = ThreeDnashabaScript.isMoving;
         simulatePath();
     }
 
@@ -37,12 +37,12 @@ public class BasicTrajectorySimulation : MonoBehaviour
         Vector3[] segments = new Vector3[segmentCount];
 
         // The first line point is wherever the player's cannon, etc is
-        segments[0] = nashabaScript.PlayerPos;
+        segments[0] = ThreeDnashabaScript.PlayerPos;
         //segments[0] = transform.position;
 
 
         // The initial velocity
-        Vector3 segVelocity = nashabaScript.Acceleration * Time.deltaTime;
+        Vector3 segVelocity = ThreeDnashabaScript.Acceleration * Time.deltaTime;
 
         // reset our hit object
         _hitObject = null;
@@ -50,10 +50,10 @@ public class BasicTrajectorySimulation : MonoBehaviour
         for (int i = 1; i < segmentCount; i++)
         {
             //// Time it takes to traverse one segment of length segScale (careful if velocity is zero)
-           
+
             //float segTime =  0.2f;
 
-            float segTime =  (segVelocity.sqrMagnitude != 0) ? (10/segVelocity.magnitude) / 10 : 0;
+            float segTime = (segVelocity.sqrMagnitude != 0) ? (Length / segVelocity.magnitude) / segmentCount : 0;
             print(segTime);
             // Add velocity from gravity for this segment's timestep
             segVelocity = segVelocity + Physics.gravity * segTime;
@@ -95,7 +95,7 @@ public class BasicTrajectorySimulation : MonoBehaviour
 
         // Set the colour of our path to the colour of the next ball
 
-        sightLine.SetColors(Color.red, Color.red);
+        //sightLine.SetColors(Color.red, Color.red);
 
         sightLine.SetVertexCount(segmentCount);
         for (int i = 0; i < segmentCount; i++)

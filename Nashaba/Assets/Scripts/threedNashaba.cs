@@ -35,6 +35,9 @@ public class threedNashaba : MonoBehaviour
     public HolderScript HolderScript;
 
     Vector3 OriginalHolderPos;
+    public Vector3 Acceleration;
+
+    public Vector3 PlayerPos;
     // public DetectedPlaneGenerator PlaneGenerator;
     //public GameObject NashabaParts;
 
@@ -60,6 +63,7 @@ public class threedNashaba : MonoBehaviour
         setShooter();
 
         OriginalHolderPos = Holder.localPosition;
+       
     }
 
     // Update is called once per frame
@@ -77,6 +81,16 @@ public class threedNashaba : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && isShooterCreated && isMoving)
         // if (Input.GetMouseButtonUp(0))
         {
+            StartCoroutine(ReturnToObject1());
+            CurrentShooter.transform.parent = null;
+            //  Holder.transform.position = OriginalHolderPos;
+            //  lineRenderer.SetPosition(1, OriginalHolderPos);
+            //  lineRenderer.SetPosition(2, OriginalHolderPos);
+            ////////////////////////////////////////////
+            //  lineRenderer.SetPosition(1, Holder.position - Holder.right * 0.05f);
+            //lineRenderer.SetPosition(2, Holder.position + Holder.right * 0.05f);
+
+
 
             isMoving = false;
 
@@ -87,11 +101,11 @@ public class threedNashaba : MonoBehaviour
             power = (OriginalHolderPos - CurrentShooter.transform.localPosition).magnitude;
 
 
-            shooterRB.GetComponent<Rigidbody>().isKinematic = false;
+            shooterRB.isKinematic = false;
 
             shooterRB.useGravity = true;
 
-            CurrentShooter.transform.parent = null;
+           
 
             shooterRB.AddForce(transform.TransformVector(ShootingAngle) * power * PowerFactor);
 
@@ -113,27 +127,27 @@ public class threedNashaba : MonoBehaviour
         if (isMoving)
         {
 
-            print(currentTouch);
+           // print(currentTouch);
 
             yMin = Screen.height * 0.1f;
             yMax = Screen.height * 0.5f;
 
             Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Clamp(currentTouch.y, yMin, yMax), OriginalHolderPos.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax)) * 2 / Screen.height);
-            print(clampedTouch);
+            //print(clampedTouch);
 
             distance = 1f;
 
             //CurrentShooter.transform.position = Vector3.MoveTowards(Holder.position, myCamera.ScreenToWorldPoint(clampedTouch), distance);
             Holder.transform.position = myCamera.ScreenToWorldPoint(clampedTouch);
 
-            lineRenderer.SetPosition(1, Holder.position + Vector3.right * 0.05f);
-            lineRenderer.SetPosition(2, Holder.position - Vector3.right * 0.05f);
+            lineRenderer.SetPosition(1, Holder.position + Holder.right * 0.05f);
+            lineRenderer.SetPosition(2, Holder.position - Holder.right * 0.05f);
             ///////////////////
             ShootingAngle = (OriginalHolderPos - CurrentShooter.transform.localPosition).normalized;
-            // Acceleration = (InitPosition.position - CurrentShooter.transform.position).magnitude * ShootingAngle * 3000;
+            Acceleration = ((Holder.position - CurrentShooter.transform.position).magnitude * ShootingAngle * PowerFactor) / shooterRB.mass;
 
-            // PlayerPos = CurrentShooter.transform.position;
-
+            PlayerPos = CurrentShooter.transform.position;
+           
 
 
             //Force replaced by power 
@@ -180,4 +194,22 @@ public class threedNashaba : MonoBehaviour
         //Destroy(CurrentShooter);
 
     }
+
+
+    IEnumerator ReturnToObject1()
+    {
+
+        while (OriginalHolderPos != Holder.transform.position)
+        {
+
+            Holder.transform.position = Vector3.MoveTowards(Holder.transform.position, OriginalHolderPos, Time.deltaTime * shooterRB.velocity.magnitude);
+
+            lineRenderer.SetPosition(1, Holder.position + Holder.right * 0.05f);
+            lineRenderer.SetPosition(2, Holder.position - Holder.right * 0.05f);
+            //lineRenderer.SetPosition(1, OriginalHolderPos);
+            yield return null;
+        }
+    }
+
+
 }
