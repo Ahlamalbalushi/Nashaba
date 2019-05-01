@@ -50,7 +50,7 @@
         float planaTimer = 5;
 
         /// Get access to nashaba script
-        public threedNashaba NashabaScript;
+        public NashabaScript NashabaScript;
        
 
 
@@ -88,7 +88,7 @@
                 var andyObject = Instantiate(prefab, planeObject.GetComponent<DetectedPlaneVisualizer>().PlaneCenter, Quaternion.identity);
                 isCreatedOnce = true;
                 /// calling setPlayer function from Nashaba script
-               NashabaScript.setShooter();
+                NashabaScript.setShooter();
                 
 
 

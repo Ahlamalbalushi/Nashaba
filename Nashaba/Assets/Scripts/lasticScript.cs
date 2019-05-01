@@ -18,7 +18,7 @@ public class lasticScript : MonoBehaviour
    // bool isdisableNashaba = false;
     internal float yMax;
     internal float yMin;
-   // public NashabaScript nashaba;
+    public NashabaScript nashaba;
     public float ShakingTime = 0.1f; // duration of shake 
 
     public float shakeRange = 50f; // shake range 
@@ -34,8 +34,8 @@ public class lasticScript : MonoBehaviour
         isMoved = false;
         originalTransform = transform.eulerAngles;
         rectSize = rect.sizeDelta;
-       // yMax = nashaba.yMax;
-        //yMin = nashaba.yMin;
+        yMax = nashaba.yMax;
+        yMin = nashaba.yMin;
        
        // print("clamp" + yMin);
 
@@ -45,7 +45,7 @@ public class lasticScript : MonoBehaviour
     void Update()
     {
      
-        //isShooterMoved = nashaba.isMoving;
+        isShooterMoved = nashaba.isMoving;
         touchPosition = Input.mousePosition;
         touchPosition = new Vector3(touchPosition.x, Mathf.Clamp(touchPosition.y, yMin, yMax), touchPosition.z - (touchPosition.y - Mathf.Clamp(touchPosition.y, yMin, yMax)) / Screen.height);
        

@@ -148,7 +148,7 @@ MonoBehaviour:
   AndyPlanePrefab: {fileID: 2651642750884571667, guid: e7a826fb31facfb4895fbb89f4f960de,
     type: 3}
   isCreatedOnce: 0
-  NashabaScript: {fileID: 0}
+  NashabaScript: {fileID: 1653810631}
 --- !u!4 &41632643
 Transform:
   m_ObjectHideFlags: 0
@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5db0228ef92ee4d849eaecdf735e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nashaba: {fileID: 1653810631}
   ShakingTime: 0.1
   shakeRange: 20
 --- !u!114 &328645155
@@ -481,6 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5db0228ef92ee4d849eaecdf735e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nashaba: {fileID: 1653810631}
   ShakingTime: 0.1
   shakeRange: 20
 --- !u!114 &628373030
@@ -617,7 +619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &774338816
 RectTransform:
   m_ObjectHideFlags: 0
@@ -969,6 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yMax: 0
   yMin: 0
+  nashaba: {fileID: 1653810631}
 --- !u!114 &1338707837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,6 +1009,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338707834}
   m_CullTransparentMesh: 0
+--- !u!114 &1653810631 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 502166846341776298, guid: a8c9047c5ceb36a47b357205c47c101d,
+    type: 3}
+  m_PrefabInstance: {fileID: 502166847928215149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502166847928215151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f3343a9e1d15a4793d912461196a3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1839130877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1290,11 +1305,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NashabaScript
       objectReference: {fileID: 0}
-    - target: {fileID: 502166846341776299, guid: a8c9047c5ceb36a47b357205c47c101d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 502166846341776298, guid: a8c9047c5ceb36a47b357205c47c101d,
         type: 3}
       propertyPath: FirstPersonCamera
@@ -1341,11 +1351,6 @@ PrefabInstance:
       propertyPath: PlaneGenerator
       value: 
       objectReference: {fileID: 41632642}
-    - target: {fileID: 502166846341776298, guid: a8c9047c5ceb36a47b357205c47c101d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 502166846341776293, guid: a8c9047c5ceb36a47b357205c47c101d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1384,7 +1389,7 @@ PrefabInstance:
     - target: {fileID: 502166846341776293, guid: a8c9047c5ceb36a47b357205c47c101d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 502166846341776293, guid: a8c9047c5ceb36a47b357205c47c101d,
         type: 3}
@@ -1447,14 +1452,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502166847928215150}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 895e8a9dc13b9bd438e952c853b69c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sightLine: {fileID: 502166847928215153}
-  ThreeDnashabaScript: {fileID: 0}
-  Length: 20
+  nashabaScript: {fileID: 1653810631}
   segmentCount: 10
   segmentScale: 1
 --- !u!120 &502166847928215153
