@@ -40,6 +40,7 @@ public class threedNashaba : MonoBehaviour
     public Vector3 Acceleration;
 
     public Vector3 PlayerPos;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -115,6 +116,9 @@ public class threedNashaba : MonoBehaviour
             ShootingAngle = transform.TransformVector((OriginalHolderPos - Holder.transform.localPosition).normalized);
             Acceleration = (ShootingAngle * (OriginalHolderPos - Holder.transform.localPosition).magnitude * PowerFactor) / shooterRB.mass;
             PlayerPos = CurrentShooter.transform.position;
+           
+
+
 
 
         }
@@ -155,6 +159,8 @@ public class threedNashaba : MonoBehaviour
         }
 
     }
+
+ 
     public void DestroyShooter()
     {
         //Destroy(CurrentShooter);
