@@ -54,7 +54,7 @@ public class BasicTrajectorySimulation : MonoBehaviour
             //float segTime =  0.2f;
 
             float segTime = (segVelocity.sqrMagnitude != 0) ? (Length / segVelocity.magnitude) / segmentCount : 0;
-            print(segTime);
+            //print(segTime);
             // Add velocity from gravity for this segment's timestep
             segVelocity = segVelocity + Physics.gravity * segTime;
 

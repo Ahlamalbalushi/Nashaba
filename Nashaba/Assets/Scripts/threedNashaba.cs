@@ -32,38 +32,25 @@ public class threedNashaba : MonoBehaviour
     public LineRenderer lineRenderer;
 
     public Transform Holder;
+
     public HolderScript HolderScript;
 
     Vector3 OriginalHolderPos;
+    Vector3 originalHolderRotaion;
     public Vector3 Acceleration;
 
     public Vector3 PlayerPos;
-    // public DetectedPlaneGenerator PlaneGenerator;
-    //public GameObject NashabaParts;
 
-    /// <summary>
-    /// //////////////////////
-    /// </summary>
-    //  public Vector3 Acceleration;
-
-    //public Vector3 PlayerPos;
-
-
-    //public GameObject rubber;
     // Start is called before the first frame update
     void Start()
     {
-        //shooterRB = CurrentShooter.GetComponent<Rigidbody>();
-        // NashabaParts.SetActive(false);
+
         power = 0;
-        //lineRenderer = GetComponent<LineRenderer>();
-
         HolderScript.clicked = ShooterCLicked;
-
         setShooter();
-
-       OriginalHolderPos = Holder.localPosition;
-       //OriginalHolderPos = Holder.transform.position;
+        OriginalHolderPos = Holder.localPosition;
+        //originalHolderRotaion = nashababody.rotation;
+        //print("rotaion" + nashababody.transform.localPosition);
 
     }
 
@@ -71,94 +58,65 @@ public class threedNashaba : MonoBehaviour
     void Update()
     {
 
-        //if (PlaneGenerator.isCreatedOnce == true)
-        //{
-        //    NashabaParts.SetActive(true);
-
-        //}
-
 
         currentTouch = Input.mousePosition;
         if (Input.GetMouseButtonUp(0) && isShooterCreated && isMoving)
-        // if (Input.GetMouseButtonUp(0))
+
         {
             StartCoroutine(ReturnToObject1());
             CurrentShooter.transform.parent = null;
-            //  Holder.transform.position = OriginalHolderPos;
-            //  lineRenderer.SetPosition(1, OriginalHolderPos);
-            //  lineRenderer.SetPosition(2, OriginalHolderPos);
-            ////////////////////////////////////////////
-            //  lineRenderer.SetPosition(1, Holder.position - Holder.right * 0.05f);
-            //lineRenderer.SetPosition(2, Holder.position + Holder.right * 0.05f);
-
-
-
             isMoving = false;
-
-       //ShootingAngle = (Holder.loca//lPosition - CurrentShooter.transform.localPosition).normalized;
-            // ShootingAngle = transform.TransformVector((OriginalHolderPos - CurrentShooter.transform.localPosition).normalized);
             ShootingAngle = (OriginalHolderPos - Holder.transform.localPosition).normalized;
-         //ShootingAngle = transform.TransformVector((OriginalHolderPos - CurrentShooter.transform.position).normalized);
-
-
-
             power = (OriginalHolderPos - Holder.transform.localPosition).magnitude;
-
-
             shooterRB.isKinematic = false;
-
             shooterRB.useGravity = true;
-
-
-
-           
-          shooterRB.AddForce(transform.TransformVector(ShootingAngle) * power * PowerFactor);
-
-
+            shooterRB.AddForce(transform.TransformVector(ShootingAngle) * power * PowerFactor);
             CurrentShooter.GetComponent<ShooterScript>().shot();
-
-
             if (currentTouch.y > yMax - 50)
             {
                 CurrentShooter.transform.position = OrigihnalPos;
             }
 
             isShooterCreated = false;
-
             Invoke("InstShooter", 2);
-
         }
-
 
         if (isMoving)
         {
 
-           // print(currentTouch);
-
             yMin = Screen.height * 0.1f;
             yMax = Screen.height * 0.5f;
 
-            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Clamp(currentTouch.y, yMin, yMax), OriginalHolderPos.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax)) * 0.2f / Screen.height);
-            //print(clampedTouch);
+            float yoffset =  currentTouch.y - touchPosition.y;
 
+            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Min(currentTouch.y + yoffset, yMax), OriginalHolderPos.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax)) * 0.2f / Screen.height);
             distance = 0.1f;
-
-            //CurrentShooter.transform.position = Vector3.MoveTowards(Holder.position, myCamera.ScreenToWorldPoint(clampedTouch), distance);
             Holder.transform.position = myCamera.ScreenToWorldPoint(clampedTouch);
-
             lineRenderer.SetPosition(1, Holder.localPosition + Vector3.right * 0.005f);
             lineRenderer.SetPosition(2, Holder.localPosition - Vector3.right * 0.005f);
-            ///////////////////
+
+
+            // Vector3 rot = (OriginalHolderPos - Holder.transform.localPosition).normalized;
+            // nashababody.transform.position = new Vector3(nashababody.transform.position.z, ( Holder.transform.localPosition.y), nashababody.transform.position.z) ;
+
+            // if (currentTouch.x != 0)
+            // {
+            float XPosition = (currentTouch.x - Screen.width / 2);
+            print("XPosition" + XPosition);
+            XPosition /= (Screen.width / 2);
+            // print("xposition" + XPosition);
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, -(XPosition) * 15, transform.localEulerAngles.z);
+            //nashababody.transform.eulerAngles = new Vector3(nashababody.transform.eulerAngles.x, (nashababody.transform.eulerAngles.y - currentTouch.x) * 0.05f, nashababody.transform.eulerAngles.z);
+            //}
+            // print("holder " + Holder.transform.localPosition);
+
+            ;
+
             ShootingAngle = transform.TransformVector((OriginalHolderPos - Holder.transform.localPosition).normalized);
             Acceleration = (ShootingAngle * (OriginalHolderPos - Holder.transform.localPosition).magnitude * PowerFactor) / shooterRB.mass;
-
             PlayerPos = CurrentShooter.transform.position;
-           
 
 
-            //Force replaced by power 
-            //float Shooterdistance = (touchPosition.y - clampedTouch.y);
-            //Force = Shooterdistance * 20;
         }
     }
 
@@ -172,14 +130,15 @@ public class threedNashaba : MonoBehaviour
 
     public void InstShooter()
     {
-         if (isShooterCreated == false) { 
-        CurrentShooter = Instantiate(Shooter, Holder.position + Holder.forward * 0.02f, transform.rotation, Holder);
-        OrigihnalPos = CurrentShooter.transform.position;
-        CurrentShooter.GetComponent<ShooterScript>().OnDestroyed = OnShooterDestroyed;
+        if (isShooterCreated == false)
+        {
+            CurrentShooter = Instantiate(Shooter, Holder.position + Holder.forward * 0.015f, transform.rotation, Holder);
+            OrigihnalPos = CurrentShooter.transform.position;
+            CurrentShooter.GetComponent<ShooterScript>().OnDestroyed = OnShooterDestroyed;
 
-        shooterRB = CurrentShooter.GetComponent<Rigidbody>();
-        isShooterCreated = true;
-         } 
+            shooterRB = CurrentShooter.GetComponent<Rigidbody>();
+            isShooterCreated = true;
+        }
     }
 
     void OnShooterDestroyed()
@@ -210,7 +169,7 @@ public class threedNashaba : MonoBehaviour
         {
 
             Holder.transform.localPosition = Vector3.MoveTowards(Holder.transform.localPosition, OriginalHolderPos, Time.deltaTime * shooterRB.velocity.magnitude);
-           
+
             lineRenderer.SetPosition(1, Holder.localPosition + Vector3.right * 0.005f);
             lineRenderer.SetPosition(2, Holder.localPosition - Vector3.right * 0.005f);
             //lineRenderer.SetPosition(1, OriginalHolderPos);
