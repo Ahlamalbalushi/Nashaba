@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6878777512151688880}
   - component: {fileID: 3979842351434319703}
   - component: {fileID: 4524548924992472713}
+  - component: {fileID: 1594583193208244644}
   m_Layer: 0
   m_Name: ChamferBox013
   m_TagString: Untagged
@@ -77,6 +78,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1594583193208244644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3933509606678841287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8771ed895d4a94fa491bb0c39b038d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: []
 --- !u!1 &8405667481630626884
 GameObject:
   m_ObjectHideFlags: 0
