@@ -69,12 +69,6 @@ public class ShooterScript : MonoBehaviour
     }
      
 
-           // if (doit)
-            //{
-                
-
-
-           // }
-        //}
+         
     
 }

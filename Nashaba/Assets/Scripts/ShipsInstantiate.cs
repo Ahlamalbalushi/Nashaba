@@ -6,7 +6,7 @@ public class ShipsInstantiate : MonoBehaviour
 {
     public GameObject[] shipsSpawn;
     public Transform shipsPosition;
-
+    public float Speed = 100; 
     int randomInt;
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class ShipsInstantiate : MonoBehaviour
         {
             SpownRandom();
             print("my ships");
-            GetComponent<Rigidbody>().AddForce(100 * transform.up);
+            GetComponent<Rigidbody>().AddForce(-Speed * transform.up);
         }
         
     }

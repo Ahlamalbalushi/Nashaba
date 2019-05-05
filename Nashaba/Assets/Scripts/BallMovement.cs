@@ -38,7 +38,7 @@ public class BallMovement : MonoBehaviour
         myRB = GetComponent<Rigidbody>();
 
         GameObject go = GameObject.Find("WayPoints");
-       // WayPoints = go.GetComponentsInChildren<Transform>();
+        // WayPoints = go.GetComponentsInChildren<Transform>();
     }
 
     // Update is called once per frame
@@ -46,7 +46,7 @@ public class BallMovement : MonoBehaviour
     {
         //if (isCrashed = true)
         //{
-       // Vector3 wayPointDirection = (WayPoints[index].position - transform.position).normalized;
+        // Vector3 wayPointDirection = (WayPoints[index].position - transform.position).normalized;
         //if (Vector3.Distance(transform.position, WayPoints[index].position) < 1f)
         //{
         //    index++;
@@ -57,43 +57,38 @@ public class BallMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<Rigidbody>().isKinematic = false;
-            GetComponent<Rigidbody>().AddForce(7000 * transform.up);
+            GetComponent<Rigidbody>().AddForce(-Speed * transform.up);
             isPlayerDied = true;
         }
+    }
+        //    if (isPlayerDied)
+        //    {
+        //        Invoke("destroythissmoke", 5);
+        //    }
 
-    //    if (isPlayerDied)
-    //    {
-    //        Invoke("destroythissmoke", 5);
-    //    }
+        //}
+        //    void destroythissmoke()
+        //    {
+        //        Destroy(this.gameObject);
+        //    }
 
+        private void OnCollisionEnter(Collision collision)
+        {
 
-    //}
-    //    void destroythissmoke()
-    //    {
-    //        Destroy(this.gameObject);
-    //    }
+            if (collision.gameObject.tag == "Target")
+                Score++;
+            scoreText.text = " Score : " + Score;
+            print(Score);
 
-    //    private void OnCollisionEnter(Collision collision)
-    //    {
-    //        if (doit)
-    //        {
-    //            Instantiate(smoke, this.transform.position, Quaternion.identity);
-    //            doit = false;
+            //  for resize player
 
-
-    //            if (collision.gameObject.tag == "Target")
-    //                Score++;
-    //            scoreText.text = " Score : " + Score;
-    //            print(Score);
-
-            // for resize player
-      //      transform.localScale += new Vector3(0.5F, 0.5f, 0.5f);
+        //    transform.localScale += new Vector3(0.5F, 0.5f, 0.5f);
         }
 
-            //if(!isCrashed)
-            //{
-            //    print("it is not crashed");
-            //}
-        }
+        //if(!isCrashed)
+        //{
+        //    print("it is not crashed");
+        //}
+    }
 
 
