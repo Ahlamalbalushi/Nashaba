@@ -1477,7 +1477,7 @@ PrefabInstance:
     - target: {fileID: 6815390754921144015, guid: f8603f4d97e5feb449a72d3369c54b13,
         type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8603f4d97e5feb449a72d3369c54b13, type: 3}
@@ -7275,7 +7275,7 @@ MonoBehaviour:
   playerPosition: {fileID: 0}
   smoke: {fileID: 0}
   WayPoints: []
-  Speed: 5000
+  Speed: 8000
   TurnSpeed: 5
 --- !u!4 &856385774 stripped
 Transform:

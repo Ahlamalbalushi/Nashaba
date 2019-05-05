@@ -325,7 +325,7 @@ MonoBehaviour:
   playerPosition: {fileID: 0}
   smoke: {fileID: 0}
   WayPoints: []
-  Speed: 1000
+  Speed: 5000
   TurnSpeed: 5
 --- !u!54 &601893339
 Rigidbody:
