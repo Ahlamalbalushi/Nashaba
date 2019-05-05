@@ -21,9 +21,14 @@ public class ShooterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
-    
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GetComponent<Rigidbody>().isKinematic = false;
+            GetComponent<Rigidbody>().AddForce(3500 * transform.up);
+           
+        }
+
 
     }
 

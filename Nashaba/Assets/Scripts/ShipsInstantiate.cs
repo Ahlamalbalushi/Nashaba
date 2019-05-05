@@ -22,12 +22,14 @@ public class ShipsInstantiate : MonoBehaviour
         {
             SpownRandom();
             print("my ships");
+            GetComponent<Rigidbody>().AddForce(100 * transform.up);
         }
+        
     }
 
     void SpownRandom()
     {
-       // randomInt = Random.Range(0, shipsSpawn.Length);
+        randomInt = Random.Range(0, shipsSpawn.Length);
         Instantiate(shipsSpawn[randomInt], shipsPosition.position, shipsPosition.rotation);
 }
 }
