@@ -16,4 +16,8 @@ public class LevelBtn : MonoBehaviour
     public GameObject Start3;
 
 
+    public Image Level1;
+    public Image Level2;
+    public Image Level3;
+
 }

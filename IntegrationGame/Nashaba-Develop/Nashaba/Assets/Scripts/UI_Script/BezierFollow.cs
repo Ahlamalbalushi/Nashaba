@@ -60,12 +60,12 @@ public class BezierFollow : MonoBehaviour
                 Mathf.Pow(Tparam, 3) * p3;
 
             transform.position = Shooterposition;
+            SceneManager.LoadScene("Menu");
 
-            if (Tparam<=0)
-            {
+          
                 transform.Rotate(new Vector3(0, 0, 1f));
 
-            }
+
 
 
             yield return new WaitForEndOfFrame();

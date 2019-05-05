@@ -39,6 +39,8 @@
 
         /// A model to place when a raycast from a user touch hits a plane.
         public GameObject AndyPlanePrefab;
+        public GameObject AndyPlanePrefab2;
+        public GameObject AndyPlanePrefab3;
 
         /// True if the app is in the process of quitting due to an ARCore connection error, otherwise false.
         private bool m_IsQuitting = false;
@@ -82,14 +84,51 @@
                 GameObject prefab;
 
                 //setting the prefab  
-                prefab = AndyPlanePrefab;
+
+                
+               // prefab = AndyPlanePrefab;
+
+
+                if (Levels.Instance.LevelNumber == 1)
+                {
+                    prefab = AndyPlanePrefab;
+                    // craete the game boxes
+                    var andyObject = Instantiate(prefab, planeObject.GetComponent<DetectedPlaneVisualizer>().PlaneCenter, Quaternion.identity);
+                   // isCreatedOnce = true;
+                   // NashabaScript.setShooter();
+
+                }
+
+                else if (Levels.Instance.LevelNumber == 2)
+                {
+                    prefab = AndyPlanePrefab2;
+                    // craete the game boxes
+                    var andyObject = Instantiate(prefab, planeObject.GetComponent<DetectedPlaneVisualizer>().PlaneCenter, Quaternion.identity);
+                   // isCreatedOnce = true;
+                  //  NashabaScript.setShooter();
+
+                }
+
+
+                else if (Levels.Instance.LevelNumber == 3)
+                {
+                    prefab = AndyPlanePrefab3;
+                    // craete the game boxes
+                    var andyObject = Instantiate(prefab, planeObject.GetComponent<DetectedPlaneVisualizer>().PlaneCenter, Quaternion.identity);
+                   //isCreatedOnce = true;
+                   // NashabaScript.setShooter();
+
+                }
+
+
+
 
                 // craete the game boxes
-                var andyObject = Instantiate(prefab, planeObject.GetComponent<DetectedPlaneVisualizer>().PlaneCenter, Quaternion.identity);
-                isCreatedOnce = true;
+                // var andyObject = Instantiate(prefab, planeObject.GetComponent<DetectedPlaneVisualizer>().PlaneCenter, Quaternion.identity);
+                 isCreatedOnce = true;
                 /// calling setPlayer function from Nashaba script
-               NashabaScript.setShooter();
-                
+                NashabaScript.setShooter();
+
 
 
             }

@@ -13,7 +13,7 @@ public class ShowHideLevel : MonoBehaviour
     void Start()
     {
 
-
+        /*
      if (LevelGame.Instance.ISactive == 0)
         {
             HideLevel2.SetActive(true);
@@ -29,6 +29,7 @@ public class ShowHideLevel : MonoBehaviour
            // HideLevel2.SetActive(false);
             HideLevel3.SetActive(false);
         }
+        */
 
 
     }

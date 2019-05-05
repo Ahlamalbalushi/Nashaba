@@ -8,16 +8,19 @@ public class Levels : MonoBehaviour
 {
 
 
+
+
     public static Levels Instance;
 
-     public Button Level1;
-     public Button Level2;
-     public Button Level3;
-
+    public Button Level1;
+    public Button Level2;
+    public Button Level3;
     public int LevelNumber = 1;
 
+   // public string LevelName="LeveL";
+   
 
-  
+
 
     void Awake()
 
@@ -30,6 +33,7 @@ public class Levels : MonoBehaviour
          DontDestroyOnLoad(gameObject);
      }
 
+   
 
     // Start is called before the first frame update
     void Start()
@@ -39,35 +43,46 @@ public class Levels : MonoBehaviour
         Level2.onClick.AddListener(LevelTwo);
         Level3.onClick.AddListener(LevelThree);
 
-     
-          
     }
 
 
-    void LevelOne()
-        {
-            LevelNumber = 1;
-            SceneManager.LoadScene("GameLevels");
-        }
-
-        void LevelTwo()
-        {
-            LevelNumber = 2;
-            SceneManager.LoadScene("GameLevels");
-        }
-
-        void LevelThree()
-        {
-            LevelNumber = 3;
-            SceneManager.LoadScene("GameLevels");
-
-        }
-
-
+   public void LevelOne()
+    {
+        LevelNumber = 1;
+        MoveToGameScene();
 
 
     }
 
+    public void LevelTwo()
+    {
+//        Application.LoadLevel(Application.loadedLevel);
+        LevelNumber = 2;
+        MoveToGameScene();
 
+
+    }
+
+    public void LevelThree()
+    {
+        LevelNumber = 3;
+        MoveToGameScene();
+       
+
+    }
+
+
+    void MoveToGameScene()
+    {
+        //LevelName = LevelName + LevelNumber;
+        SceneManager.LoadScene("Game");
+
+    }
+
+
+
+
+
+}
 
 

@@ -77,7 +77,7 @@ public class LevelManager : MonoBehaviour
     void SaveAll()
     {
 
-        GameObject[] allButtons = GameObject.FindGameObjectsWithTag("LevelButton");
+        GameObject[] allButtons = GameObject.FindGameObjectsWithTag("LevelBtn");
 
         foreach (GameObject buttons in allButtons)
         {
