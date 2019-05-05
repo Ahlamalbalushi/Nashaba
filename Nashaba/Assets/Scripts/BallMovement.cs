@@ -77,7 +77,10 @@ public class BallMovement : MonoBehaviour
 
             if (collision.gameObject.tag == "Target")
                 Score++;
-            scoreText.text = " Score : " + Score;
+            scoreText.text =""+ Score;
+        if (collision.gameObject.tag == "Danger_Box")
+            Score--;
+        scoreText.text = "" + Score;
             print(Score);
 
             //  for resize player
