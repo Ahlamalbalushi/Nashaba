@@ -5,16 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LoadingGame.unity
     guid: 5897fd69223808143aa8bc10addb1026
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: ed16d12b98079e14281556c47b47bcfa
   - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/3fff1d2f89a6fb146bfc1029cc8b3d14
-    guid: 3fff1d2f89a6fb146bfc1029cc8b3d14
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: fbcc0a8308a1fe448a4ed3ab83cc9ee7
+  - enabled: 1
+    path: Assets/GoogleARCore/Examples/CloudAnchors/Scenes/CloudAnchors.unity
+    guid: 83fb41cc294e74bdea57537befa00ffc
   m_configObjects: {}

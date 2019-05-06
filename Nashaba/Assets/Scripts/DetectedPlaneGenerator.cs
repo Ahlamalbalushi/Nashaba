@@ -5,7 +5,7 @@
     using UnityEngine;
 
     /// <summary>
-    /// Our code
+  
     /// </summary>
     public class DetectedPlaneGenerator : MonoBehaviour
     {
