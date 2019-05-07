@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GoogleARCore.Examples.Common;
 using System;
+using GoogleARCore.Examples.CloudAnchors;
 #if UNITY_EDITOR
 // Set up touch input propagation while using Instant Preview in the editor.
 using Input = GoogleARCore.InstantPreviewInput;
@@ -40,7 +41,8 @@ public class threedNashaba : MonoBehaviour
     public Vector3 Acceleration;
 
     public Vector3 PlayerPos;
-   
+    public LocalPlayerController LocalPlayerScript;
+    //bool isCreated;
 
     // Start is called before the first frame update
     void Start()
@@ -58,12 +60,13 @@ public class threedNashaba : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //isCreated = LocalPlayerScript.isObjectCreated;
 
         currentTouch = Input.mousePosition;
-        if (Input.GetMouseButtonUp(0) && isShooterCreated && isMoving)
+        //if (Input.GetMouseButtonUp(0) && isShooterCreated && isMoving)
+            if (Input.GetMouseButtonUp(0))
 
-        {
+            {
             StartCoroutine(ReturnToObject1());
             CurrentShooter.transform.parent = null;
             isMoving = false;
@@ -82,7 +85,8 @@ public class threedNashaba : MonoBehaviour
             Invoke("InstShooter", 2);
         }
 
-        if (isMoving)
+       // if ((isMoving) && (isCreated))
+           if (isMoving)
         {
 
             yMin = Screen.height * 0.1f;
