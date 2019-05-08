@@ -33,6 +33,8 @@ namespace GoogleARCore
     [HelpURL("https://developers.google.com/ar/reference/unity/class/GoogleARCore/Anchor")]
     public class Anchor : MonoBehaviour
     {
+
+       
         private static Dictionary<IntPtr, Anchor> s_AnchorDict =
             new Dictionary<IntPtr, Anchor>(new IntPtrEqualityComparer());
 
@@ -112,6 +114,8 @@ namespace GoogleARCore
             var pose = m_NativeSession.AnchorApi.GetPose(m_NativeHandle);
             transform.position = pose.position;
             transform.rotation = pose.rotation;
+           
+           // transform.position = transform.localPosition;
 
             TrackingState currentFrameTrackingState = TrackingState;
             if (m_LastFrameTrackingState != currentFrameTrackingState)
