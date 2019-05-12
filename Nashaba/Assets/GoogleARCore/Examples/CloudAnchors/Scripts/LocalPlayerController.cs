@@ -34,14 +34,20 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// The Star model that will represent networked objects in the scene.
         /// </summary>
         public GameObject StarPrefab;
+       // public ShooterScript shootingSCript;
 
-        /// <summary>
+
+        public static LocalPlayerController Instance;
+        /// <summary> 
         /// The Anchor model that will represent the anchor in the scene.
         /// </summary>
         public GameObject AnchorPrefab;
-     
-        //public bool isObjectCreated = false;
 
+        //public bool isObjectCreated = false;
+        private void Awake()
+        {
+            Instance = this;
+        }
         /// <summary>
         /// The Unity OnStartLocalPlayer() method.
         /// </summary>
@@ -70,12 +76,13 @@ namespace GoogleARCore.Examples.CloudAnchors
 
             // Anchor must be hosted in the device.
             anchorObject.GetComponent<AnchorController>().HostLastPlacedAnchor(anchor);
-         
+
 
 
             // Host can spawn directly without using a Command because the server is running in this instance.
 #pragma warning disable 618
             NetworkServer.Spawn(anchorObject);
+
             //NetworkServer.Spawn(nashabaObject);
             //NetworkServer.Spawn(anchorObject);
 
@@ -93,12 +100,30 @@ namespace GoogleARCore.Examples.CloudAnchors
         public void CmdSpawnStar(Vector3 position, Quaternion rotation)
         {
             // Instantiate Star model at the hit pose.
-            var starObject = Instantiate(StarPrefab, position, rotation);
+            //var starObject = Instantiate(StarPrefab, position, rotation);
 
             // Spawn the object in all clients.
 #pragma warning disable 618
-            NetworkServer.Spawn(starObject);
+            NetworkServer.Spawn(StarPrefab);
+            //NetworkServer.Destroy(StarPrefab);
+
+
+
 #pragma warning restore 618
         }
+
+
+        //[ClientRpc]
+
+        //public void RpcDestrroyCube(string objName)
+        //{
+
+        //    NetworkServer.Destroy(GameObject.Find(objName));
+
+
+        //}
+
+
+
     }
 }
