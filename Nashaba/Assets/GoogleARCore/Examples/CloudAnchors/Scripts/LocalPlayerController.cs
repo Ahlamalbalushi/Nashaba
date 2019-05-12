@@ -39,7 +39,8 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// The Anchor model that will represent the anchor in the scene.
         /// </summary>
         public GameObject AnchorPrefab;
-     
+        public GameObject nashabaBody;
+        public GameObject holder;
         //public bool isObjectCreated = false;
 
         /// <summary>
