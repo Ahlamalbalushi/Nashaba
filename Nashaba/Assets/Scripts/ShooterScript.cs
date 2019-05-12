@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using GoogleARCore.Examples.CloudAnchors;
 
 public class ShooterScript : MonoBehaviour
 {
@@ -52,6 +52,13 @@ public class ShooterScript : MonoBehaviour
             Instantiate(smoke, this.transform.position, Quaternion.identity);
             
         }
+        if (collision.gameObject.tag == "cube")
+        {
+            LocalPlayerController.instance.CmdDestroyCube(collision.gameObject);
+
+        }
+
+
     }
      
     

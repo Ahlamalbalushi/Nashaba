@@ -41,6 +41,8 @@ namespace GoogleARCore.Examples.CloudAnchors
         public GameObject AnchorPrefab;
         public GameObject nashabaBody;
         public GameObject holder;
+        public static LocalPlayerController instance;
+
         //public bool isObjectCreated = false;
 
         /// <summary>
@@ -53,6 +55,11 @@ namespace GoogleARCore.Examples.CloudAnchors
             // A Name is provided to the Game Object so it can be found by other Scripts, since this is instantiated as
             // a prefab in the scene.
             gameObject.name = "LocalPlayer";
+        }
+
+        void Awake()
+        {
+            instance = this;
         }
 
         /// <summary>
@@ -100,6 +107,19 @@ namespace GoogleARCore.Examples.CloudAnchors
 #pragma warning disable 618
             NetworkServer.Spawn(starObject);
 #pragma warning restore 618
+        }
+
+#pragma warning disable 618
+        [Command]
+#pragma warning restore 618
+
+        public void CmdDestroyCube(GameObject obj)
+        {
+
+#pragma warning disable 618
+            NetworkServer.Destroy(obj);
+#pragma warning restore 618
+
         }
     }
 }
