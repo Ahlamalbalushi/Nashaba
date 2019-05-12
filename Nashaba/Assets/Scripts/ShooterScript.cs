@@ -4,9 +4,11 @@ using UnityEngine;
 using System;
 using GoogleARCore.Examples.CloudAnchors;
 
+
 public class ShooterScript : MonoBehaviour
 {
     public GameObject smoke;
+   
     //bool doit = true;
 
     public Action OnDestroyed;
@@ -55,6 +57,7 @@ public class ShooterScript : MonoBehaviour
         if (collision.gameObject.tag == "cube")
         {
             LocalPlayerController.instance.CmdDestroyCube(collision.gameObject);
+            
 
         }
 

@@ -22,6 +22,7 @@ namespace GoogleARCore.Examples.CloudAnchors
 {
     using UnityEngine;
     using UnityEngine.Networking;
+  
 
     /// <summary>
     /// Local player controller. Handles the spawning of the networked Game Objects.
@@ -42,6 +43,8 @@ namespace GoogleARCore.Examples.CloudAnchors
         public GameObject nashabaBody;
         public GameObject holder;
         public static LocalPlayerController instance;
+        public int score;
+      
 
         //public bool isObjectCreated = false;
 
@@ -118,6 +121,14 @@ namespace GoogleARCore.Examples.CloudAnchors
 
 #pragma warning disable 618
             NetworkServer.Destroy(obj);
+            if (isClient)
+            {
+                score++;
+            }
+          //if (isServer)
+          //  {
+          //      score++;
+          //  }
 #pragma warning restore 618
 
         }
