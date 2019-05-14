@@ -92,8 +92,6 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// </summary>
         private ApplicationMode m_CurrentMode = ApplicationMode.Ready;
 
-        public ApplicationMode CurrentMode { get => m_CurrentMode; set => m_CurrentMode = value; }
-
         /// <summary>
         /// Enumerates modes the example application can be in.
         /// </summary>
@@ -125,13 +123,13 @@ namespace GoogleARCore.Examples.CloudAnchors
             _UpdateApplicationLifecycle();
 
             // If we are neither in hosting nor resolving mode then the update is complete.
-            if (CurrentMode != ApplicationMode.Hosting && CurrentMode != ApplicationMode.Resolving)
+            if (m_CurrentMode != ApplicationMode.Hosting && m_CurrentMode != ApplicationMode.Resolving)
             {
                 return;
             }
 
             // If the origin anchor has not been placed yet, then update in resolving mode is complete.
-            if (CurrentMode == ApplicationMode.Resolving && !m_IsOriginPlaced)
+            if (m_CurrentMode == ApplicationMode.Resolving && !m_IsOriginPlaced)
             {
                 return;
             }
@@ -171,7 +169,7 @@ namespace GoogleARCore.Examples.CloudAnchors
                 {
                     _InstantiateStar();
                 }
-                else if (!m_IsOriginPlaced && CurrentMode == ApplicationMode.Hosting)
+                else if (!m_IsOriginPlaced && m_CurrentMode == ApplicationMode.Hosting)
                 {
                     SetWorldOrigin(m_LastPlacedAnchor.transform);
                     _InstantiateAnchor();
@@ -211,14 +209,14 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// </summary>
         public void OnEnterHostingModeClick()
         {
-            if (CurrentMode == ApplicationMode.Hosting)
+            if (m_CurrentMode == ApplicationMode.Hosting)
             {
-                CurrentMode = ApplicationMode.Ready;
+                m_CurrentMode = ApplicationMode.Ready;
                 _ResetStatus();
                 return;
             }
 
-            CurrentMode = ApplicationMode.Hosting;
+            m_CurrentMode = ApplicationMode.Hosting;
             _SetPlatformActive();
         }
 
@@ -228,14 +226,14 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// </summary>
         public void OnEnterResolvingModeClick()
         {
-            if (CurrentMode == ApplicationMode.Resolving)
+            if (m_CurrentMode == ApplicationMode.Resolving)
             {
-                CurrentMode = ApplicationMode.Ready;
+                m_CurrentMode = ApplicationMode.Ready;
                 _ResetStatus();
                 return;
             }
 
-            CurrentMode = ApplicationMode.Resolving;
+            m_CurrentMode = ApplicationMode.Resolving;
             _SetPlatformActive();
         }
 
@@ -319,12 +317,12 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// <returns><c>true</c>, if stars can be placed, <c>false</c> otherwise.</returns>
         private bool _CanPlaceStars()
         {
-            if (CurrentMode == ApplicationMode.Resolving)
+            if (m_CurrentMode == ApplicationMode.Resolving)
             {
                 return m_IsOriginPlaced;
             }
 
-            if (CurrentMode == ApplicationMode.Hosting)
+            if (m_CurrentMode == ApplicationMode.Hosting)
             {
                 return m_IsOriginPlaced && m_AnchorFinishedHosting;
             }
@@ -338,7 +336,7 @@ namespace GoogleARCore.Examples.CloudAnchors
         private void _ResetStatus()
         {
             // Reset internal status.
-            CurrentMode = ApplicationMode.Ready;
+            m_CurrentMode = ApplicationMode.Ready;
             if (m_LastPlacedAnchor != null)
             {
                 Destroy(m_LastPlacedAnchor.gameObject);
