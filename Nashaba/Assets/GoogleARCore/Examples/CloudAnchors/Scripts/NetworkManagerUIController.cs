@@ -123,6 +123,14 @@ namespace GoogleARCore.Examples.CloudAnchors
             _ChangeLobbyUIVisibility(true);
         }
 
+        //private void Start()
+        //{
+        //    if (CloudAnchorsExampleController.CurrentMode == CloudAnchorsExampleController.ApplicationMode.Hosting)
+        //        LocalPlayerController.instance.isHost = true;
+        //    else
+        //        LocalPlayerController.instance.isHost = false;
+        //}
+
         /// <summary>
         /// Handles the user intent to create a new room.
         /// </summary>

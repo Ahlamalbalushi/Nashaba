@@ -22,7 +22,8 @@ namespace GoogleARCore.Examples.CloudAnchors
 {
     using UnityEngine;
     using UnityEngine.Networking;
-  
+
+
 
     /// <summary>
     /// Local player controller. Handles the spawning of the networked Game Objects.
@@ -43,8 +44,15 @@ namespace GoogleARCore.Examples.CloudAnchors
         public GameObject nashabaBody;
         public GameObject holder;
         public static LocalPlayerController instance;
-        public int score;
-      
+
+        [SyncVar] public int PlayerOnescore;
+        [SyncVar] public int PlayerTwocore;
+        //public NetworkInstanceId netId { get; }
+
+        bool isHost = false;
+
+
+
 
         //public bool isObjectCreated = false;
 
@@ -58,11 +66,35 @@ namespace GoogleARCore.Examples.CloudAnchors
             // A Name is provided to the Game Object so it can be found by other Scripts, since this is instantiated as
             // a prefab in the scene.
             gameObject.name = "LocalPlayer";
+
+            print("My ID: " + playerControllerId);
         }
 
         void Awake()
         {
             instance = this;
+        }
+
+        private void Update()
+        {
+            print("My ID: " + playerControllerId);
+
+            print("Number of Player Controllers: " + NetworkManager.singleton.client.connection.playerControllers.Count);
+            foreach (var item in NetworkManager.singleton.client.connection.playerControllers)
+            {
+                print("Player Controller ID: " + item.playerControllerId);
+            }
+            // score
+            NetworkIdentity networkIdentity = GetComponent<NetworkIdentity>();
+
+            print("NetID: " + networkIdentity.netId);
+            print("Player ID: " + networkIdentity.playerControllerId);
+            if (networkIdentity.netId.Value == 1)
+                isHost = true;
+            else
+            {
+                isHost = false;
+            }
         }
 
         /// <summary>
@@ -81,15 +113,18 @@ namespace GoogleARCore.Examples.CloudAnchors
 
             // Anchor must be hosted in the device.
             anchorObject.GetComponent<AnchorController>().HostLastPlacedAnchor(anchor);
-         
+
 
 
             // Host can spawn directly without using a Command because the server is running in this instance.
 #pragma warning disable 618
             NetworkServer.Spawn(anchorObject);
             //NetworkServer.Spawn(nashabaObject);
-            //NetworkServer.Spawn(anchorObject);
+            //NetworkServer.Spawn(anchorObject);\
 
+
+
+            //NetworkServer.connections[0].
 #pragma warning restore 618
         }
 
@@ -121,16 +156,22 @@ namespace GoogleARCore.Examples.CloudAnchors
 
 #pragma warning disable 618
             NetworkServer.Destroy(obj);
-            if (isClient)
+          
+            if (isHost)
             {
-                score++;
+                PlayerOnescore++;
+
             }
-          //if (isServer)
-          //  {
-          //      score++;
-          //  }
+            else
+            {
+                PlayerTwocore++;
+            }
+
+
 #pragma warning restore 618
 
         }
+
+
     }
 }

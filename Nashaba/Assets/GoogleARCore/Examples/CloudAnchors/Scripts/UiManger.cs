@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class UiManger : MonoBehaviour
 {
-    public Text scoreTxt;
+    public Text FirstscoreTxt;
+    public Text SecondscoreTxt;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,8 @@ public class UiManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreTxt.text = "Score" + LocalPlayerController.instance.score;
+        FirstscoreTxt.text = "Score" + LocalPlayerController.instance.PlayerOnescore;
+        SecondscoreTxt.text = "Score" + LocalPlayerController.instance.PlayerTwocore;
+
     }
 }
