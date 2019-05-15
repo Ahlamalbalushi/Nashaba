@@ -107,7 +107,7 @@ public class threedNashaba : MonoBehaviour
             // if (currentTouch.x != 0)
             // {
             float XPosition = (currentTouch.x - Screen.width / 2);
-            print("XPosition" + XPosition);
+            //print("XPosition" + XPosition);
             XPosition /= (Screen.width / 2);
             // print("xposition" + XPosition);
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, -(XPosition) * 15, transform.localEulerAngles.z);

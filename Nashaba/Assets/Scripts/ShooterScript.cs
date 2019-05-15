@@ -52,13 +52,11 @@ public class ShooterScript : MonoBehaviour
         if (collision.gameObject.tag == "Target")
         {
             Instantiate(smoke, this.transform.position, Quaternion.identity);
-            
         }
         if (collision.gameObject.tag == "cube")
         {
-            LocalPlayerController.instance.CmdDestroyCube(collision.gameObject);
-            
-
+            //ScoreManager.Instance.Point(collision.gameObject);
+            GameObject.Find("LocalPlayer").GetComponent<LocalPlayerController>().Point(collision.gameObject);
         }
 
 
