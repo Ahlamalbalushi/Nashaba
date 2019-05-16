@@ -28,7 +28,7 @@ public class threedNashaba : MonoBehaviour
     public float power;
     public float PowerFactor;
     Vector3 ShootingAngle;
-    public float distance;
+    //public float distance;
     bool isShooterCreated = false;
     public LineRenderer lineRenderer;
 
@@ -95,11 +95,11 @@ public class threedNashaba : MonoBehaviour
 
             float yoffset =  currentTouch.y - touchPosition.y;
 
-            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Min(currentTouch.y + yoffset, yMax), OriginalHolderPos.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax)) * 0.2f / Screen.height);
-            distance = 0.1f;
+            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Min(currentTouch.y + yoffset, yMax), OriginalHolderPos.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax)) * 0.12f / Screen.height);
+            //distance = 0.1f;
             Holder.transform.position = myCamera.ScreenToWorldPoint(clampedTouch);
-            lineRenderer.SetPosition(1, Holder.localPosition + Vector3.right * 0.005f);
-            lineRenderer.SetPosition(2, Holder.localPosition - Vector3.right * 0.005f);
+            lineRenderer.SetPosition(1, Holder.localPosition + Vector3.right * 0.04f);
+            lineRenderer.SetPosition(2, Holder.localPosition - Vector3.right * 0.04f);
 
 
             // Vector3 rot = (OriginalHolderPos - Holder.transform.localPosition).normalized;
@@ -141,7 +141,7 @@ public class threedNashaba : MonoBehaviour
     {
         if (isShooterCreated == false)
         {
-            CurrentShooter = Instantiate(Shooter, Holder.position + Holder.forward * 0.015f, transform.rotation, Holder);
+            CurrentShooter = Instantiate(Shooter, Holder.position + Holder.forward * 0.12f, transform.rotation, Holder);
             OrigihnalPos = CurrentShooter.transform.position;
             CurrentShooter.GetComponent<ShooterScript>().OnDestroyed = OnShooterDestroyed;
 
@@ -181,8 +181,8 @@ public class threedNashaba : MonoBehaviour
 
             Holder.transform.localPosition = Vector3.MoveTowards(Holder.transform.localPosition, OriginalHolderPos, Time.deltaTime * shooterRB.velocity.magnitude);
 
-            lineRenderer.SetPosition(1, Holder.localPosition + Vector3.right * 0.005f);
-            lineRenderer.SetPosition(2, Holder.localPosition - Vector3.right * 0.005f);
+            lineRenderer.SetPosition(1, Holder.localPosition + Vector3.right * 0.04f);
+            lineRenderer.SetPosition(2, Holder.localPosition - Vector3.right * 0.04f);
             //lineRenderer.SetPosition(1, OriginalHolderPos);
             yield return null;
         }
