@@ -20,6 +20,7 @@
 
 namespace GoogleARCore.Examples.CloudAnchors
 {
+    using GoogleARCore.Examples.Common;
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.Networking;
@@ -38,6 +39,8 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// The Lobby Screen to see Available Rooms or create a new one.
         /// </summary>
         public Canvas LobbyScreen;
+
+        
 
         /// <summary>
         /// The snackbar text.
@@ -90,6 +93,7 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// The Join Room buttons.
         /// </summary>
         private List<GameObject> m_JoinRoomButtonsPool = new List<GameObject>();
+       public bool isSecondplayer = false;
 
         /// <summary>
         /// The Unity Awake() method.
@@ -173,7 +177,10 @@ namespace GoogleARCore.Examples.CloudAnchors
         {
             if (success)
             {
-                SnackbarText.text = "Cloud Anchor successfully hosted! Tap to place more stars.";
+               // SnackbarText.text = "Cloud Anchor successfully hosted! Tap to place more stars.";
+                SnackbarText.text = "Cloud Anchor successfully hosted!";
+               
+
             }
             else
             {
@@ -190,7 +197,11 @@ namespace GoogleARCore.Examples.CloudAnchors
         {
             if (success)
             {
-                SnackbarText.text = "Cloud Anchor successfully resolved! Tap to place more stars.";
+               // SnackbarText.text = "Cloud Anchor successfully resolved! Tap to place more stars.";
+                SnackbarText.text = "Cloud Anchor successfully resolved! ";
+              
+               
+
             }
             else
             {
@@ -209,8 +220,12 @@ namespace GoogleARCore.Examples.CloudAnchors
             m_Manager.matchName = match.name;
             m_Manager.matchMaker.JoinMatch(match.networkId, string.Empty, string.Empty,
                                          string.Empty, 0, 0, _OnMatchJoined);
+          
+          
             CloudAnchorsExampleController.OnEnterResolvingModeClick();
+          
         }
+       
 
         /// <summary>
         /// Callback that happens when a <see cref="NetworkMatch.ListMatches"/> request has been

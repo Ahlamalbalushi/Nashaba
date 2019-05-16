@@ -167,7 +167,7 @@ namespace GoogleARCore.Examples.CloudAnchors
                 // instantiate a star, both in Hosting and Resolving modes.
                 if (_CanPlaceStars())
                 {
-                    _InstantiateStar();
+                    //_InstantiateStar();
                 }
                 else if (!m_IsOriginPlaced && m_CurrentMode == ApplicationMode.Hosting)
                 {
@@ -287,12 +287,12 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// <summary>
         /// Instantiates a star object that will be synchronized over the network to other clients.
         /// </summary>
-        private void _InstantiateStar()
-        {
-            // Star must be spawned in the server so a networking Command is used.
-            GameObject.Find("LocalPlayer").GetComponent<LocalPlayerController>()
-                      .CmdSpawnStar(m_LastPlacedAnchor.transform.position, m_LastPlacedAnchor.transform.rotation);
-        }
+        //private void _InstantiateStar()
+        //{
+        //    // Star must be spawned in the server so a networking Command is used.
+        //  GameObject.Find("LocalPlayer").GetComponent<LocalPlayerController>()
+        //             .CmdSpawnStar(m_LastPlacedAnchor.transform.position, m_LastPlacedAnchor.transform.rotation);
+        //}
 
         /// <summary>
         /// Sets the corresponding platform active.
@@ -315,6 +315,8 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// Indicates whether a star can be placed.
         /// </summary>
         /// <returns><c>true</c>, if stars can be placed, <c>false</c> otherwise.</returns>
+        /// 
+        //Ahlam
         private bool _CanPlaceStars()
         {
             if (m_CurrentMode == ApplicationMode.Resolving)

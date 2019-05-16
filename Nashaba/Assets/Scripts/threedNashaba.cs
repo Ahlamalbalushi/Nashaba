@@ -64,7 +64,7 @@ public class threedNashaba : MonoBehaviour
 
         currentTouch = Input.mousePosition;
         //if (Input.GetMouseButtonUp(0) && isShooterCreated && isMoving)
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && isShooterCreated && isMoving) 
 
             {
             StartCoroutine(ReturnToObject1());
@@ -76,6 +76,7 @@ public class threedNashaba : MonoBehaviour
             shooterRB.useGravity = true;
             shooterRB.AddForce(transform.TransformVector(ShootingAngle) * power * PowerFactor);
             CurrentShooter.GetComponent<ShooterScript>().shot();
+            //CurrentShooter.transform.localScale += new Vector3(0.03f, 0.03f, 0.03f);
             if (currentTouch.y > yMax - 50)
             {
                 CurrentShooter.transform.position = OrigihnalPos;

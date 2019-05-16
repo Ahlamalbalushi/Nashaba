@@ -62,6 +62,7 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// The Transform of the Anchor object representing the World Origin.
         /// </summary>
         private Transform m_AnchorTransform;
+        public bool isCreatedOnce;
 
         /// <summary>
         /// The Unity Update() method.
@@ -78,14 +79,15 @@ namespace GoogleARCore.Examples.CloudAnchors
 
             // Iterate over planes found in this frame and instantiate corresponding GameObjects to visualize them.
             Session.GetTrackables<DetectedPlane>(m_NewPlanes, TrackableQueryFilter.New);
-            for (int i = 0; i < m_NewPlanes.Count; i++)
+            //for (int i = 0; i < m_NewPlanes.Count; i++)
+            if (m_NewPlanes.Count > 0 && !isCreatedOnce)
             {
                 // Instantiate a plane visualization prefab and set it to track the new plane. The transform is set to
                 // the origin with an identity rotation since the mesh for our prefab is updated in Unity World
                 // coordinates.
                 GameObject planeObject = Instantiate(DetectedPlanePrefab,
                                                      worldPose.position, worldPose.rotation, transform);
-                planeObject.GetComponent<DetectedPlaneVisualizer>().Initialize(m_NewPlanes[i]);
+                planeObject.GetComponent<DetectedPlaneVisualizer>().Initialize(m_NewPlanes[0]);
 
                 if (!m_IsOriginPlaced)
                 {
@@ -93,6 +95,9 @@ namespace GoogleARCore.Examples.CloudAnchors
                 }
             }
         }
+
+
+
 
         /// <summary>
         /// Sets the apparent world origin of ARCore through applying an offset to the ARCoreDevice (and therefore also

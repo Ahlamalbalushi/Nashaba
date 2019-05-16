@@ -12,6 +12,8 @@ public class UiManger : MonoBehaviour
     public Text Debug;
 
     public static UiManger Instance;
+
+    //public NetworkManagerUIController networkscript;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,7 @@ public class UiManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void UpdateMyScore(int Score)

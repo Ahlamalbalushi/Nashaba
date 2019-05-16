@@ -46,14 +46,13 @@ public class ShooterScript : MonoBehaviour
     }
 
 
-
     private void OnCollisionEnter(Collision collision)
     {
+        //if (collision.gameObject.tag == "Target")
+        //{
+        //    Instantiate(smoke, this.transform.position, Quaternion.identity);
+        //}
         if (collision.gameObject.tag == "Target")
-        {
-            Instantiate(smoke, this.transform.position, Quaternion.identity);
-        }
-        if (collision.gameObject.tag == "cube")
         {
             //ScoreManager.Instance.Point(collision.gameObject);
             GameObject.Find("LocalPlayer").GetComponent<LocalPlayerController>().Point(collision.gameObject);

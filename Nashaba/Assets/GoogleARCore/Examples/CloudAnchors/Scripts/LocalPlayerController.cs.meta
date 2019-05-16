@@ -4,9 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - StarPrefab: {fileID: 7622267045855453007, guid: c2bdb85502e72644a985113a48cfdfe4,
-      type: 3}
-  - AnchorPrefab: {fileID: 2651642750884571667, guid: e7a826fb31facfb4895fbb89f4f960de,
+  - AnchorPrefab: {fileID: 5780074813710110847, guid: b413d5aa326f54f849736db45a815c76,
       type: 3}
   - nashabaBody: {fileID: 2826311325360155777, guid: c3d49248826e31e44b5332412fab11ae,
       type: 3}

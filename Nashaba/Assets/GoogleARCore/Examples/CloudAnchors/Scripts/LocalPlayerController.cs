@@ -33,7 +33,7 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// <summary>
         /// The Star model that will represent networked objects in the scene.
         /// </summary>
-        public GameObject StarPrefab;
+        //public GameObject StarPrefab;
 
         /// <summary>
         /// The Anchor model that will represent the anchor in the scene.
@@ -46,6 +46,7 @@ namespace GoogleARCore.Examples.CloudAnchors
         int Score;
 
         NetworkIdentity identity;
+      public  int playerNumber = 0;
 
         //public bool isObjectCreated = false;
 
@@ -59,8 +60,11 @@ namespace GoogleARCore.Examples.CloudAnchors
             // A Name is provided to the Game Object so it can be found by other Scripts, since this is instantiated as
             // a prefab in the scene.
             gameObject.name = "LocalPlayer";
+          
             print("init Player");
         }
+
+
 
         void Awake()
         {
@@ -113,17 +117,17 @@ namespace GoogleARCore.Examples.CloudAnchors
         /// </summary>
         /// <param name="position">Position of the object to be instantiated.</param>
         /// <param name="rotation">Rotation of the object to be instantiated.</param>
-        [Command]
-        public void CmdSpawnStar(Vector3 position, Quaternion rotation)
-        {
-            // Instantiate Star model at the hit pose.
-            var starObject = Instantiate(StarPrefab, position, rotation);
+        //[Command]
+        //public void CmdSpawnStar(Vector3 position, Quaternion rotation)
+        //{
+        //    // Instantiate Star model at the hit pose.
+        //   // var starObject = Instantiate(StarPrefab, position, rotation);
 
-            // Spawn the object in all clients.
+        //    // Spawn the object in all clients.
 
-            NetworkServer.Spawn(starObject);
+        //   // NetworkServer.Spawn(starObject);
 
-        }
+        //}
 
         public void Point(GameObject obj)
         {
