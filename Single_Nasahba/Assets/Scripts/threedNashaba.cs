@@ -258,8 +258,6 @@ public class threedNashaba : MonoBehaviour
 
     }
 
-
-
     public void OnShooterDestroyed()
     {
         if (Live>0)
@@ -277,9 +275,6 @@ public class threedNashaba : MonoBehaviour
         }
 
     }
-
- 
-
 
 
 

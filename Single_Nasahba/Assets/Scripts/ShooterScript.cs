@@ -7,6 +7,7 @@ using System;
 public class ShooterScript : MonoBehaviour
 {
     public GameObject smoke;
+    public GameObject ships;
     //bool doit = true;
 
     public Action OnDestroyed;
@@ -46,8 +47,12 @@ public class ShooterScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Target")
         {
-            Instantiate(smoke, this.transform.position, Quaternion.identity);
-            
+            Instantiate(smoke, this.transform.position, Quaternion.identity);   
+        }
+
+        if(collision.gameObject.tag == "chips")
+        {
+            Instantiate(ships, this.transform.position, Quaternion.identity);
         }
     }
      
