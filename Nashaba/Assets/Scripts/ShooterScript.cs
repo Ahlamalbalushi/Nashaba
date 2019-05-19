@@ -52,7 +52,7 @@ public class ShooterScript : MonoBehaviour
         //{
         //    Instantiate(smoke, this.transform.position, Quaternion.identity);
         //}
-        if (collision.gameObject.tag == "Target")
+        if (collision.gameObject.tag == "Food")
         {
             //ScoreManager.Instance.Point(collision.gameObject);
             GameObject.Find("LocalPlayer").GetComponent<LocalPlayerController>().Point(collision.gameObject);

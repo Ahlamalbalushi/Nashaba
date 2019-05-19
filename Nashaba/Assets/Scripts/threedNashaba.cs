@@ -95,7 +95,7 @@ public class threedNashaba : MonoBehaviour
 
             float yoffset =  currentTouch.y - touchPosition.y;
 
-            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Min(currentTouch.y + yoffset, yMax), OriginalHolderPos.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax)) * 0.12f / Screen.height);
+            Vector3 clampedTouch = new Vector3(currentTouch.x, Mathf.Min(currentTouch.y + yoffset, yMax), OriginalHolderPos.z - (touchPosition.y - Mathf.Clamp(currentTouch.y, yMin, yMax))* 2 / Screen.height);
             //distance = 0.1f;
             Holder.transform.position = myCamera.ScreenToWorldPoint(clampedTouch);
             lineRenderer.SetPosition(1, Holder.localPosition + Vector3.right * 0.04f);
@@ -116,16 +116,10 @@ public class threedNashaba : MonoBehaviour
             //}
             // print("holder " + Holder.transform.localPosition);
 
-            ;
-
             ShootingAngle = transform.TransformVector((OriginalHolderPos - Holder.transform.localPosition).normalized);
             Acceleration = (ShootingAngle * (OriginalHolderPos - Holder.transform.localPosition).magnitude * PowerFactor) / shooterRB.mass;
             PlayerPos = CurrentShooter.transform.position;
            
-
-
-
-
         }
     }
 
